@@ -1,6 +1,8 @@
 # IDEs
 .idea/
 
+exampleSite/
+
 # Hugo
 /resources/
 public/
