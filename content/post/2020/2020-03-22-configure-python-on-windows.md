@@ -16,7 +16,7 @@ All right, I have a Windows machine. It's a PITA, but it's here. And for some re
 Preparation:
 
   * Install python with [choco][1] (<code class="EnlighterJSRAW" data-enlighter-language="null">choco install -y python</code>)
-  * Run PowerShell as Administrator 
+  * Run PowerShell as Administrator
       * Execute <code class="EnlighterJSRAW" data-enlighter-language="null">Set-ExecutionPolicy -ExecutionPolicy Unrestricted</code> (we'll see why in a very short time)
 
 Now to code it's pretty similar to *NIX:

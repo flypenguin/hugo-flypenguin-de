@@ -17,7 +17,7 @@ Die notify Funktion von Puppet hat eine seltsame Eigenschaft, die ich persönlic
 > <p style="text-align:left;">
 >   service { "tomcat" : ensure => running }
 > </p>
-> 
+>
 > <p style="text-align:left;">
 >   file { "/etc/tomcat.conf" : notify => Service["tomcat"] }
 > </p>
@@ -29,7 +29,7 @@ Die notify Funktion von Puppet hat eine seltsame Eigenschaft, die ich persönlic
 > <p style="text-align:left;">
 >   class { "deployment::basic_app_server" : }
 > </p>
-> 
+>
 > <p style="text-align:left;">
 >   file { "/etc/tomcat.conf" : notify => Service["tomcat"] }
 > </p>
@@ -39,9 +39,9 @@ Die notify Funktion von Puppet hat eine seltsame Eigenschaft, die ich persönlic
 </p>
 
 > stage { "preparation" : before => Stage["main"] }
-> 
+>
 > class { "deployment::basic\_app\_server" : stage => "preparation" }
-> 
+>
 > file { "/etc/tomcat.conf" : notify => Service["tomcat"] }
 
 Und ... bumm. Da notify eine "file-before-service" (da Service wie angenommen in deployment::basic\_app\_server konfiguriert wird) impliziert, aber die Stages eine "service-before-file"-Beziehung verlangen, geht das nicht. Schön ist das nicht, finde ich.

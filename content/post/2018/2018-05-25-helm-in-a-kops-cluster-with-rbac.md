@@ -22,7 +22,7 @@ I ran `helm list`  to see if it worked.
 I got this:
 
 ```
-Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" \ 
+Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" \
     cannot list configmaps in the namespace "kube-system"
 ```
 

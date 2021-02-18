@@ -29,7 +29,7 @@ Let's continue with Spring. They once were (and probably still are) on the foref
 Examples? Sure.
 
   * Configuration. I try to use Apache Camel. Seems to be a great product, all is configurable using either Spring DSL or code. Now if you want to do it with Spring, until today I invested _days_ to find out how to read the fucking configuration from that god-damned configuration file. It's _just. Not. Possible._ Sure, countless examples on the net, but that leads me to ...
-  * the documentation. Just some random notes: 
+  * the documentation. Just some random notes:
       * The examples there are just don't cut it and come basically without any documentation.
       * All links which sound like they could help lead to a 404 page.
       * "if you want to do X you can 'easily' do this using Spring XML" is a sentence I want to burn now, because ... well, there's no _example_, usually. You're just being redirected to some Spring page which explains the Spring concepts in epic detail, with no connection whatsoever to the actual problem with the actual fucking library.

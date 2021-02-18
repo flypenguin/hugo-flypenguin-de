@@ -18,8 +18,8 @@ tags:
 If you want to validate something in the view, and return with a custom error message in the same form, you can use the "[Form.add_error][1](fieldname, errorstring)" method. And then, of course, return to the previous template.
 
 ```
-class MyView(View): 
-    def get(self, request): 
+class MyView(View):
+    def get(self, request):
         data = form.cleaned_data
         if len(res) &gt; 0:
             form.add_error( 'login', "Diese Personalnummer existiert bereits!")
@@ -31,10 +31,10 @@ class MyView(View):
 You want a form which fills its choice field from the database? And if the database changes, if you reload the page, the form should change as well? Of course! Django got you covered.
 
 ```
-class UserForm(forms.Form): 
+class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
-        super(UserForm, self).__init__(*args, **kwargs) 
-        self.fields['site'] = forms.ModelChoiceField( label="Site", queryset=Site.objects.all().order_by('name'), ) 
+        super(UserForm, self).__init__(*args, **kwargs)
+        self.fields['site'] = forms.ModelChoiceField( label="Site", queryset=Site.objects.all().order_by('name'), )
         for field in ('department', 'office', 'phone'):
             self.fields.move_to_end(field)
 

@@ -30,7 +30,7 @@ $devices_tmp    = inline_template( '
         .select{|f| f.include? "sd" }
         .collect{|f| "/dev/" + f}.join "," %&gt;' )
 
-# here we split the string back to an array. 
+# here we split the string back to an array.
 $devices_wanted = split($devices_tmp, ",")
 
 # but it works.

@@ -28,24 +28,24 @@ This is basically "let's get real". Every single thing of the following list I e
 Let's get started.
 
   * One of our most critical systems uses a web server which had its latest release in 2002.
-  * Containers are metal things you use for transporting real world cargo. 
+  * Containers are metal things you use for transporting real world cargo.
       * If not, the item "look at containers" is on their roadmap, "definitely". No specifics though, and no, sorry, "not in the near future".
   * CI/CD is a meaningless set of letters.
-  * If you put a web based software (if you can find one) behind a load balancer you will face pure and utter confusion from the vendors. 
+  * If you put a web based software (if you can find one) behind a load balancer you will face pure and utter confusion from the vendors.
       * You will even be warned of "unsupported scenarios".
-  * If you're lucky you'll have an installation script or an installer. 
+  * If you're lucky you'll have an installation script or an installer.
       * If you're _very_ lucky it is not made from "copy" commands. Yes, that includes Windows.
       * A ZIP file with 17.000 files is a perfectly normal installation package. It's also "cross platform".
       * If you're on Linux - don't even think about requesting a .deb/.rpm package.
-  * Nothing scales horizontally. 
+  * Nothing scales horizontally.
       * Scaling means "add 16 GB more RAM".
       * One "noble exception": Surprisingly, our most antique piece of software scales best. In theory is officially supports a HA concept based on DRBD and pacemaker. Of course it's not set up, because nobody dares to.
-  * People are writing their own object serialization protocols, because "the ones coming with Java aren't good enough". 
+  * People are writing their own object serialization protocols, because "the ones coming with Java aren't good enough".
       * Then they load the whole database in system RAM, "to be fast". (Guess if they are).
       * Yes, if you wanted to scale this (which AFAIR is unsupported) you need that RAM on each node.
       * This is one of the better apps though. (Yes, really)
   * Everything needs downtimes for reboot (because nothing scales).
-  * Cloud is "forbidden". 
+  * Cloud is "forbidden".
       * Of course, a standard installation on EC2 / Azure is (of course) "unsupported".
       * Also no one knows what "cloud" actually means, everybody thinks it's just "a computer somewhere else".
   * Informix databases, Oracle databases, _lots_ of SQLServer databases. Postgres? Nah. MySQL/Maria? Nah.
@@ -53,36 +53,36 @@ Let's get started.
   * Vendors support "linux installations", but have never actually done it. So you have to explain Linux concepts to the (paid) consultant who is sent to help you install the aforementioned ZIP archive containing 17.000 files
   * Your monitoring tool takes pride in being be able to "install multiple instances on one server", but their Docker container is "experimental".
   * Classical 3-tier-applications (client, server, database) require direct database access from the client, including - of course - the DB master passwords.
-  * A PDF is "digital data". Like in the thing that is usually being sent to the printer. 
+  * A PDF is "digital data". Like in the thing that is usually being sent to the printer.
       * Even a scan of a document is considered "digital data".
       * No, no one understands what "structured data" is. (Well, way too few people).
   * Every. Single. Installation. Is manually managed by the vendor or partner. There basically _is_ no documentation.
-  * You need special software to save a read-only copy to somewhere. 
+  * You need special software to save a read-only copy to somewhere.
       * That software is ridiculously expensive and utter crap, but it has a certification that says "read only archiving software".
       * No, it's not a "backup" software - it's a software to store read-only copies of documents for compliance purposes.
       * If that sounds like a read-only S3 bucket - yes, that's basically it. Please pay six figures.
-  * CSV imports. Everybody is _very proud_ that their software can "easily import CSV data". In the worst case you just have to give them the schema, and they will (read: have to) do it for you. "No problem at all!" 
+  * CSV imports. Everybody is _very proud_ that their software can "easily import CSV data". In the worst case you just have to give them the schema, and they will (read: have to) do it for you. "No problem at all!"
       * Exports are ... trickier. (a.k.a "Well ... that is ... so ... you're the first person asking for this ...")
       * If you have import/export scenarios it's inevitablly placing files in directories.
       * If you feel a slight pain now thinking "oh my god that is going to be tricky using network file shares" - you are on point.
-  * No APIs. Most of the vendors don't even understand the question. 
+  * No APIs. Most of the vendors don't even understand the question.
       * And if they do, you probably have to pay for it. 5 figures, if you're lucky.
       * Don't ask about REST. Just don't.
-  * Oh - one exception. One of our partners has "an API". He said. It looks like this: 
+  * Oh - one exception. One of our partners has "an API". He said. It looks like this:
       * A file is placed in a directory. (Side note: The file format documentation is 200+ pages of data tables without a single line of text explanation)
       * On a Windows machine. Using an RDP connection. Over a VPN. That file is then automatically picked up, and automatically transferred to ...
       * **the person responsible for performing the sanity check**. (He even get's an email on arrival - all automatically!!)
       * That person then fixes the file if necessary, and re-injects it into the processing pipeline. (No idea what comes after, to be honest).
       * See? API. (API = A Perfect Idiocy)
-  * No logging. 
+  * No logging.
       * Or if you have logging, it's like they invented a different logging scheme for every class that calls "log.info()".
-  * If you buy a software, the vendor removes features you explicitly requested and paid for. Then you have to use the now crippled software, because that feature removal was "necessary". 
+  * If you buy a software, the vendor removes features you explicitly requested and paid for. Then you have to use the now crippled software, because that feature removal was "necessary".
       * And the feature just might be your user authentication, so nobody can use it any more.
       * You might also pay for a re-implementation, because "the architecture is now so much better - it's just the way it worked before is no longer possible." (That is still to be discussed as I understand it)
       * By the way, an apology is yet to be offered.
-  * SAML and OpenID are considered weird niche phenomena which nobody uses. Most vendors don't even know what it is. 
+  * SAML and OpenID are considered weird niche phenomena which nobody uses. Most vendors don't even know what it is.
       * Even SSO using plain old AD is very rare. Everyting has its own password. Yay!!
-  * Passwords have a max length. Of 8 chars, sometimes. 
+  * Passwords have a max length. Of 8 chars, sometimes.
       * User identifiers as well.
   * Customer-specific configuration compiled into apps. So every customer, or even every customer site, gets its own app version.
 

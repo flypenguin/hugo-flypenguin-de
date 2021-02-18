@@ -16,12 +16,12 @@ Problem: mit HIlfe von Augeas einen Eintrag zur /etc/hosts Datei hinzufügen.
 Erste Lösung:
 
 ```default
-augeas { "${title}" : 
-    context =&gt; '/files/etc/hosts', 
+augeas { "${title}" :
+    context =&gt; '/files/etc/hosts',
     changes =&gt; [
-        "rm *[canonical = '${host}']", 
+        "rm *[canonical = '${host}']",
         "set 02/canonical ${host}",
-        "set 02/ipaddr ${ip}", 
+        "set 02/ipaddr ${ip}",
     ]
 }
 ```
@@ -29,11 +29,11 @@ augeas { "${title}" :
 Funktioniert nicht. Warum? Trotz Aufruf von "save" am Ende einer jeden Sitzung im augtool ist die Reihenfolge der Anweisungen durchaus entscheidend - die Daten werden offenbar nicht erst am Ende zusammengesetzt. Hier z.B. gilt: In der gleichen Reihenfolge vorgehen, wie es auch in die Datei geschrieben werden würde. Und da steht nun mal am Anfang die IP Adresse. Daher also eine einfache kleine Änderung machen und schon gehts:
 
 ```default
-augeas { "${title}" : 
-    context =&gt; '/files/etc/hosts', 
+augeas { "${title}" :
+    context =&gt; '/files/etc/hosts',
     changes =&gt; [
-        "rm *[canonical = '${host}']", 
-        "set 02/ipaddr ${ip}", 
+        "rm *[canonical = '${host}']",
+        "set 02/ipaddr ${ip}",
         "set 02/canonical ${host}",
     ]
 }

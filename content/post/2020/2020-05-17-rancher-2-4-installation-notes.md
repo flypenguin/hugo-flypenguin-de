@@ -15,12 +15,12 @@ I really like [Rancher][1]. Used in v1.x, now I'm back at a point where I might 
 These are my notes:
 
   * [The **Rancher Docker Container has its state under /var/lib/rancher**][2].
-  * [For HA Rancher relies on a defined k8s service (probably just a DNS-resolvable service) called CATTLE\_PEER\_SERVICE][3] 
+  * [For HA Rancher relies on a defined k8s service (probably just a DNS-resolvable service) called CATTLE\_PEER\_SERVICE][3]
       * [**HA installations** are currently **only supported in k8s clusters using helm** as installation method][4]
   * [The **Rancher** management server **can only be run on Kubernetes cluster** in an infrastructure provider where Kubernetes is **installed using K3s or RKE**][5]
-  * **Installing Rancher in an Azure Container instance does _not_ work with persistent data**.  
+  * **Installing Rancher in an Azure Container instance does _not_ work with persistent data**.
     Azure Files doesn't support symlinks, which Rancher needs. Of course that would have been my preferred way, because _super quick_ and _super slim_.
-  * **Installing Rancher using the quickstart repo is a PITA on a Mac**.  
+  * **Installing Rancher using the quickstart repo is a PITA on a Mac**.
     For two reasons: First you have to install the "rke" provider manually (really annoying), and second terraform can't import another module And basically a shit idea if you want to pitch this to your colleagures. You have to clone, install plugins, wrap modules, do ssh, all sorts of stuff which is just. Too. Complicated.
 
 &nbsp;

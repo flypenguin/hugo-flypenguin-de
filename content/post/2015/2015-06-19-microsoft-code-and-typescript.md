@@ -111,7 +111,7 @@ $ node test.js
 
 Article Sources:
 
-[Microsoft Visual Studio Help][1]  
+[Microsoft Visual Studio Help][1]
 [Stackoverflow][2]
 
  [1]: http://blogs.msdn.com/b/typescript/archive/2015/04/30/using-typescript-in-visual-studio-code.aspx

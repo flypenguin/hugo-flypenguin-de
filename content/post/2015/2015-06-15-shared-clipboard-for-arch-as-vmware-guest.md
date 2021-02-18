@@ -17,7 +17,7 @@ First: Install open-vm-tools and gtkmm, then add some modules to system bootup
 
   * "sudo pacman -S open-vm-tools [gtkmm][1]"
   * "sudo vim /etc/mkinitcpio.conf"
-  * Under "MODULES=..." add the following: "vmxnet3 vmw\_vmci vmw\_pvscsi vmw_balloon"  
+  * Under "MODULES=..." add the following: "vmxnet3 vmw\_vmci vmw\_pvscsi vmw_balloon"
     (You probably don't need most of them, but this is the config which worked for me. I didn't try to remove them one-by-one to see which ones are _actually_ needed)
   * "sudo mkinitcpio -p linux"
   * reboot

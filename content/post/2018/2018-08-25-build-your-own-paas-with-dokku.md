@@ -35,16 +35,16 @@ This is how you get started. But before you can get started, **you need a domain
   4. Wait until the droplet finished provisioning.
 
 <div id='gallery-1' class='gallery galleryid-1096 gallery-columns-3 gallery-size-thumbnail'>
-  <figure class='gallery-item'> 
-  
+  <figure class='gallery-item'>
+
   <div class='gallery-icon portrait'>
     <a href='https://flypenguin.de/2018/08/25/build-your-own-paas-with-dokku/screenshot-6/'><img width="150" height="150" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-6-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" /></a>
-  </div></figure><figure class='gallery-item'> 
-  
+  </div></figure><figure class='gallery-item'>
+
   <div class='gallery-icon portrait'>
     <a href='https://flypenguin.de/2018/08/25/build-your-own-paas-with-dokku/screenshot-7/'><img width="150" height="150" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-7-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" /></a>
-  </div></figure><figure class='gallery-item'> 
-  
+  </div></figure><figure class='gallery-item'>
+
   <div class='gallery-icon landscape'>
     <a href='https://flypenguin.de/2018/08/25/build-your-own-paas-with-dokku/screenshot-5/'><img width="150" height="150" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-5-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" /></a>
   </div></figure>
@@ -144,7 +144,7 @@ Branch 'master' set up to track remote branch 'master' from 'dokku'.
 
 And if you open your URL now (which is `hello-world.my-paas.for-myself.com`) you should see this image:
 
-<img loading="lazy" class="size-medium wp-image-1100 aligncenter" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png" alt="" width="266" height="300" srcset="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png 266w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-768x868.png 768w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-906x1024.png 906w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8.png 970w" sizes="(max-width: 266px) 100vw, 266px" /> 
+<img loading="lazy" class="size-medium wp-image-1100 aligncenter" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png" alt="" width="266" height="300" srcset="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png 266w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-768x868.png 768w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-906x1024.png 906w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8.png 970w" sizes="(max-width: 266px) 100vw, 266px" />
 
 Now, for 5 € / month you get:
 

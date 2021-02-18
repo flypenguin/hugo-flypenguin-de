@@ -17,13 +17,13 @@ Brain dump.
 
 ```
 # from here: https://askubuntu.com/a/862799/870970
-apt-get update && apt-get --with-new-pkgs upgrade 
+apt-get update && apt-get --with-new-pkgs upgrade
 
 # restart
 reboot
 
 # do it again
-apt-get update && apt-get --with-new-pkgs upgrade 
+apt-get update && apt-get --with-new-pkgs upgrade
 
 # remove shit
 apt autoremove
@@ -31,9 +31,9 @@ apt autoremove
 
 #
 # UPGRADE
-# 
+#
 
-do-release-upgrade 
+do-release-upgrade
 
 
 # done.

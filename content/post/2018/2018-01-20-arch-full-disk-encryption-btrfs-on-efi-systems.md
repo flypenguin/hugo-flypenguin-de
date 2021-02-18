@@ -68,7 +68,7 @@ $ mkfs.btrfs /dev/mapper/secure-system
 $ mount /dev/mapper/secure-system /mnt
 $ btrfs subvolume create /mnt/@
 $ btrfs subvolume create /mnt/@home
-$ btrfs subvolume create /mnt/@snapshots 
+$ btrfs subvolume create /mnt/@snapshots
 $ umount /mnt
 
 # MOUNT PARTITIONS

@@ -10,7 +10,7 @@ categories:
 ---
 Ich bin stolzer Besitzer eines Synology NAS. Das hängt mit meinem Mac an einem Gigabit-Ethernet, und funktioniert ziemlich gut. Große Dateien bekomme ich mit Transferraten von +- 100 MB/sec rüber.
 
-Aber. 
+Aber.
 
 Möchte ich von meinem Mac aus eine Netzwerkfreigabe im Finder browsen - dann dauert das listen von Verzeichnissen SEKUNDEN. Anzeigen von JPGs (kleinen!) in der Vorschau auch gerne mal 10-20 davon.
 
@@ -19,6 +19,6 @@ Abhilfe schafften nach langem googlen folgende Erste-Hilfe-Maßnahmen im Termina
 `<br />
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true<br />
 sudo sysctl -w net.inet.tcp.delayed_ack=0<br />
-` 
+`
 
 ... und seitdem flutscht's 😀

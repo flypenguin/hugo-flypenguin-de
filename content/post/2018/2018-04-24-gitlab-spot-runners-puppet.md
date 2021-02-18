@@ -51,11 +51,11 @@ Another thing is that the list of AWS permissions the runner needs in order to c
 
 For this we're still using Puppet (our K8S migration is still ongoing), and our solution so far looks like this:
 
-  * Create a config file with puppet _next to_ the designated config file location, 
+  * Create a config file with puppet _next to_ the designated config file location,
       * containing _only_ global parameters.
       * The file has a puppet hook which triggers an exec that deletes the "final" config file if the puppet-created one has changed.
   * Start the GitLab runner.
-  * Perform a "docker exec" which registers the runner in GitLab. 
+  * Perform a "docker exec" which registers the runner in GitLab.
       * The "unless" contains a check that skips execution if the final config file is present.
       * The `register`  command sets all configuration values except the global ones. Like said above, the command appends all non-global config settings to any existing config file.
 

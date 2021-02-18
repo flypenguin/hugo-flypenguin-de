@@ -14,10 +14,10 @@ tags:
 Was geht hier nicht?
 
 ```
-class { 'whatever' : 
-    do     =&gt; 'something', 
+class { 'whatever' :
+    do     =&gt; 'something',
     before =&gt; Class[ 'something_else' ],
-} -&gt; 
+} -&gt;
 
 class { 'yeah_yeah' : do =&gt; 'even_more', }
 ```

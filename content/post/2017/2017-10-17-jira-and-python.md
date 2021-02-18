@@ -22,31 +22,31 @@ from pprint import pprint, pformat
 from getpass import getpass
 
 import jira
- 
- 
+
+
 def do_shit():
     url = read("JIRA url:")
     username = read("JIRA username:")
     password = getpass("JIRA password:")
     jira_inst = jira.JIRA(url, basic_auth=(username, password))
- 
+
     test = {
         "project":          {"key": "TEST"},
         "issuetype":        {"name": "Task"},
- 
+
         "labels":           ["deleteme", "whatisthis"],
- 
+
         "summary":          "woho",
         "description":      "wohooooo",
         "duedate":          "2017-11-11",
- 
+
         "timetracking":    {"originalEstimate": "4d"},
     }
- 
+
     created = jira_inst.create_issues([test])
     pprint(created)
- 
- 
+
+
 if __name__ == "__main__":
     do_shit()
 ```

@@ -18,10 +18,10 @@ Beacause when you create IAM capabilities with cloudformation, you get this erro
 
 ```
 {
-    "CapabilitiesReason": "The following resource(s) require capabilities: [AWS::IAM::AccessKey, AWS::IAM::User]", 
+    "CapabilitiesReason": "The following resource(s) require capabilities: [AWS::IAM::AccessKey, AWS::IAM::User]",
     "Capabilities": [
         "CAPABILITY_IAM"
-    ], 
+    ],
     "Parameters": []
 }
 ```
@@ -30,7 +30,7 @@ Beacause when you create IAM capabilities with cloudformation, you get this erro
 
 ```
 # aws cloudformation create-stack \
-    --template-url file://env.json 
+    --template-url file://env.json
     --capabilities CAPABILITY_IAM
 ```
 

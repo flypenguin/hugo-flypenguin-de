@@ -58,12 +58,12 @@ Important to know:
 The **only thing to do is set two environment variables** for the test runner. The information you need can be found either from my terraform output, or fom the Azure portal (images below). Then you add two variables in GitLab CI (GitLab repo -> settings -> CI/CD -> Variables):
 
   * **AZ\_APP\_NAME** (in this case this would be "flypenguin-coolapp-xrp")
-  * **AP\_APP\_REPO_PASS** (in this case this would be "SYut....") [Best\_Wordpress\_Gallery id="2&#8243; gal_title="2020-11-21 cicd app service gitlab credentials"] 
+  * **AP\_APP\_REPO_PASS** (in this case this would be "SYut....") [Best\_Wordpress\_Gallery id="2&#8243; gal_title="2020-11-21 cicd app service gitlab credentials"]
 
 There are again a few caveats:
 
   * Basically the whole thing is based on the app name. Your user name should be your app name prefixed by a "$" sign, which is **highly annoying**.
-  * If you ever want to use a "$" sign in any GitLab runner environment variable, you have to escape it with another "$".  
+  * If you ever want to use a "$" sign in any GitLab runner environment variable, you have to escape it with another "$".
     Example: "my$variable" should be "my**$$**variable" in the "value" field of GitLab.
 
 ## Add .gitlab-ci.yml file to repo

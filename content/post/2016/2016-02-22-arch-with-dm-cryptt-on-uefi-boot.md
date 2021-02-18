@@ -10,20 +10,20 @@ categories:
 ---
 Just a collection of links, cause this is something which is not really documented in full. I am also too lazy, but next time I don't want to search 🙂 .
 
-  * Basic installation instructions: [3rd party article][1] (German), [Arch Linux docs][2] (without LUKS) 
+  * Basic installation instructions: [3rd party article][1] (German), [Arch Linux docs][2] (without LUKS)
       * _Read the comments_ on the first article: gummiboot is now [bootctl][3], you have to format the boot partition with FAT32, and you should use a better random generator on cryptsetup. It's all in there.
       * **Note:** The former /boot partition **is identical to** the UEFI boot partition. You don't need both.
-  * Arch Linux original instructions: [In German][4], [in English][5] 
+  * Arch Linux original instructions: [In German][4], [in English][5]
       * **Careful:** The setting "FONT_MAP" in /etc/vconsole.conf in the _German_ guide should **not** be applied! It's obsolete.
       * The English guide does only go into the crypt installation, but that really deep.
   * If you actually added FONT_MAP to /etc/vconsole.conf, [that happens][6]
   * The file /vmlinuz-linux [comes in the "kernel" package][7]. If it's missing, just reinstall "pacman -S kernel"
-  * You can usually choose between NetworkManager and systemd-networkd as networking management solutions. I chose NetworkManager: 
+  * You can usually choose between NetworkManager and systemd-networkd as networking management solutions. I chose NetworkManager:
       * systemctl enable NetworkManager
       * systemctl start NetworkManager
       * systemctl disable systemd-networkd
       * systemctl disable systemd-resolved
-  * [Installing GNOME][8] (and the login manager gdm) is pretty simple: 
+  * [Installing GNOME][8] (and the login manager gdm) is pretty simple:
       * pacman -S gnome gnome-extras
       * systemctl enable gdm
 

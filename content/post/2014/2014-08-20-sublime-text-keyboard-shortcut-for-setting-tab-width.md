@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-Schwer zu finden ...  
-Wer schnell über das Keyboard die Tab Width verändern will, der tue das so:  
+Schwer zu finden ...
+Wer schnell über das Keyboard die Tab Width verändern will, der tue das so:
 `<br />
    {<br />
         "keys": ["super+k", "super+2"],<br />
@@ -20,6 +20,6 @@ Wer schnell über das Keyboard die Tab Width verändern will, der tue das so:
             "value": 2<br />
         }<br />
     }<br />
-` 
+`
 
 (gefunden hier: http://is.gd/Pz9zE0)

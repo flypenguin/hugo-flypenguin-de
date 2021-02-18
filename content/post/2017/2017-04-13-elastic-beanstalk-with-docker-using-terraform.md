@@ -30,7 +30,7 @@ The environment is just a set of hosts configured in a special way (autoscaling 
 For the example here you **need** a couple of things & facts:
 
   * An AWS account
-  * In that account, you need: 
+  * In that account, you need:
       * an S3 bucket to save your app versions
       * a VPC ID
       * subnet IDs for the instance networks
@@ -139,7 +139,7 @@ Finally, deploying this using the AWS cli:
 $ aws elasticbeanstalk update-environment \
   --application-name test-app \
   --version-label latest \
-  --environment-name test-env 
+  --environment-name test-env
 ```
 
 All done correctly, this should be it, and you should be able to access your app now under your configured address.
@@ -155,8 +155,8 @@ Finally, after reading a lot of postings and way to much AWS docs, I am surprise
 #### Final notes & troubleshooting
 
   1. I have no idea what the `aws_elastic_beanstalk_configuration_template`  Terraform resource is for. I would like to understand it, but the documentation is rather ... sparse.
-  2. The solution stack name has semantic meaning. You must set something that AWS understands. This can be found out by using the following command:  
-    `$ aws elasticbeanstalk list-available-solution-stacks` **  
+  2. The solution stack name has semantic meaning. You must set something that AWS understands. This can be found out by using the following command:
+    `$ aws elasticbeanstalk list-available-solution-stacks` **
 ** ... or on the AWS documentation. Whatever is to your liking.
   3. If you don't specify a security group (`aws:autoscaling:launchconfiguration`  - "`SecurityGroups` ") one will be created for you automatically. That might not be convenient because this means that on "terraform destroy" this group might not be destroyed automatically. (which is just a guess, I didn't test this)
   4. The same goes for the auto scaling group scaling rules.

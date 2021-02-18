@@ -107,9 +107,9 @@ input {
   stdin {
     codec =&gt; multiline {
       pattern =&gt; "^\s"
-      what =&gt; "previous" 
-    } 
-  } 
+      what =&gt; "previous"
+    }
+  }
 }
 ```
 
@@ -168,7 +168,7 @@ Now, I still don't like this solution for the following reasons:
   * Now even if I _could_ use the codec instead of the filter, it does not come with a "stream_identity" parameter. Whether you don't need it any more (then how does it do it?!) or it went without replacement I don't know.
   * I have to scale up (anyways) - but I do not have any idea about UDP package loss and resource requirements on the logstash side yet, and when something happens logs will be lost. This is rather unfortunate.
   * Java stack traces are fine. Python and Go stack traces not so much - they contain non-indented lines within the body of the stack trace, so the "starts with whitespace? add to last line" approach does not work. And I have no idea for other approaches to be honest.
-  * Changing logstash configs promises to be a pain - because it's central component, so doing this without logs getting lost you seem to need to ... 
+  * Changing logstash configs promises to be a pain - because it's central component, so doing this without logs getting lost you seem to need to ...
       * have multiple logstash instances, load-balanced using IP round robin probably, with at least one more than you need for the full load
       * Take one of those instances out of the round-robin
       * Wait until traffic is exactly down to zero (which might take _time_), ...

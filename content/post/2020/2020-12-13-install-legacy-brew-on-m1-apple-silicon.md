@@ -29,7 +29,7 @@ The [other recommendation][5] (run the whole terminal under Rosetta2, scroll dow
 
 What _did_ finally work though was changing my login shell to `/bin/bash` instead of the default `zsh` for the time being:<figure class="wp-block-image size-large">
 
-<img loading="lazy" width="1024" height="410" src="https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-1024x410.png" alt="" class="wp-image-1327" srcset="https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-1024x410.png 1024w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-300x120.png 300w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-768x307.png 768w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50.png 1040w" sizes="(max-width: 1024px) 100vw, 1024px" /> </figure> 
+<img loading="lazy" width="1024" height="410" src="https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-1024x410.png" alt="" class="wp-image-1327" srcset="https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-1024x410.png 1024w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-300x120.png 300w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50-768x307.png 768w, https://flypenguin.de/wp-content/uploads/2020/12/Bildschirmfoto-2020-12-13-um-20.40.50.png 1040w" sizes="(max-width: 1024px) 100vw, 1024px" /> </figure>
 
 Maybe that helps someone.
 

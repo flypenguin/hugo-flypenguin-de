@@ -32,7 +32,7 @@ fixtures:
   repositories:
     concat: git://github.com/puppetlabs/puppetlabs-concat.git
     # alternate method, for specifying refs
-    stdlib: 
+    stdlib:
       repo: git://github.com/puppetlabs/puppetlabs-stdlib.git
       ref:  1.0.0
   symlinks:

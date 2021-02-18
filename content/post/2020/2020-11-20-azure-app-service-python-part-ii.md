@@ -52,8 +52,8 @@ resource "azurerm_app_service" "appservice" {
 Now. What happens? Let's see:
 
 ```
-Error creating App Service "wzkytawt" (Resource Group "pkd-it-appservices0"): 
-   web.AppsClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- 
+Error creating App Service "wzkytawt" (Resource Group "pkd-it-appservices0"):
+   web.AppsClient#CreateOrUpdate: Failure sending request: StatusCode=0 --
    Original Error: autorest/azure: Service returned an error. Status=&lt;nil&gt; &lt;nil&gt;
 ```
 
@@ -72,10 +72,10 @@ So, set things to "F1 | Free" and everything works.
 ```
 There was a conflict.                                              (really?!)
 
-64 Bit worker processes cannot be used for the site as the plan 
+64 Bit worker processes cannot be used for the site as the plan
 does not allow it.                                                 (WTF?)
 
-For more information on pricing and features, please see: 
+For more information on pricing and features, please see:
 https://aka.ms/appservicepricingdetails                            (oh! a link! NICE)
 ```
 

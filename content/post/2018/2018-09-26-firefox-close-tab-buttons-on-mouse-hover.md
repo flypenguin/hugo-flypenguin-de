@@ -15,7 +15,7 @@ I used to have Firefox's TabMix Plus addon installed. And the feature I missed m
 
 Googling a little bit told me how to bring it back:
 
-  * Create a [userChrome.css][1] file  
+  * Create a [userChrome.css][1] file
     ($[FF\_PROFILE\_FOLDER][2]/chrome/userChrome.css)
   * Enter the code below (taken [from here][3], which is basically the original of this article)
 
@@ -25,8 +25,8 @@ Googling a little bit told me how to bring it back:
     margin-left: -16px !important;
 }
 .tabbrowser-tab:not([selected]):not([pinned]):hover .tab-close-button {
-    visibility: visible !important; 
-    margin-left: 0px    !important; 
+    visibility: visible !important;
+    margin-left: 0px    !important;
     display: -moz-box   !important;
 }
 ```

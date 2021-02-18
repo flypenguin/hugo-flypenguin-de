@@ -17,25 +17,25 @@ You just have to write about something, and it changes. In this case, that's pre
 
 APIs:
 
-  * <https://covid19api.com/> - the name says it all. Explicitly free.  
+  * <https://covid19api.com/> - the name says it all. Explicitly free.
     Data source: Johns Hopkins University
-  * <https://coronavirus-tracker-api.herokuapp.com/> - an API for the numbers, includes history.  
+  * <https://coronavirus-tracker-api.herokuapp.com/> - an API for the numbers, includes history.
     Data source: unknown.
-  * <https://corona-stats.online/> - another (somewhat strange) API.  
+  * <https://corona-stats.online/> - another (somewhat strange) API.
     Data source: worldometers.info (default), Johns Hopkins University (optional)
 
 Data sources:
 
-  * [The Humanitarian Data Exchange's COVID-19 case data][1]  
+  * [The Humanitarian Data Exchange's COVID-19 case data][1]
     No idea where this data comes from, but it's the only machine-readable data source I found.
-  * [COVID survival calculator][2] (added 2020-04-01)  
+  * [COVID survival calculator][2] (added 2020-04-01)
     almost 5 MB dataset of unknown origin, including links to other sources
-  * [Our World in Data][3] (added 2020-04-01)  
+  * [Our World in Data][3] (added 2020-04-01)
     another dataset
-  *  [European Centre for Disease Prevention and Control][4]  
+  *  [European Centre for Disease Prevention and Control][4]
     Daily data tables for download in various formats
   * [Johns Hopkins Data on GitHub][5]
-  * [A dataset on Kaggle][6]  
+  * [A dataset on Kaggle][6]
     Although I think for downloading you need an account
 
 Dashboards and visualizations:
@@ -43,7 +43,7 @@ Dashboards and visualizations:
   * [Information is Beautiful][7] (added 2020-04-04)
   * [Datawrapper.de][8] (added 2020-04-04)
   * [1point3acres.com][9] (US only, added 2020-04-04)
-  * [**A _lot_ of user kernels on Kaggle**][10] (added 2020-04-04)  
+  * [**A _lot_ of user kernels on Kaggle**][10] (added 2020-04-04)
     Jupyter & R notebooks you can fool around with yourself!
 
 &nbsp;

@@ -44,7 +44,7 @@ Creating container database Securing connection to database
        Data dir: /var/lib/dokku/services/postgres/hello-world/data
        Dsn: postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world
        Exposed ports: -
-       Id: 785ef252c748ed85739d1d6ad375a1e1bd66e925ac79358e9ffaa30ab852d6c0 
+       Id: 785ef252c748ed85739d1d6ad375a1e1bd66e925ac79358e9ffaa30ab852d6c0
        Internal ip: 172.17.0.9
        Links: -
        Service root: /var/lib/dokku/services/postgres/hello-world
@@ -74,9 +74,9 @@ $ dokku postgres:link hello-world hello-world
 -----&gt; No Procfile found in app image
 -----&gt; DOKKU_SCALE file found (/home/dokku/hello-world/DOKKU_SCALE)
 =====&gt; web=1
------&gt; Attempting pre-flight checks 
-       For more efficient zero downtime deployments, create a file CHECKS. 
-       See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples 
+-----&gt; Attempting pre-flight checks
+       For more efficient zero downtime deployments, create a file CHECKS.
+       See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples
        CHECKS file not found in container: Running simple container check...
 -----&gt; Waiting for 10 seconds ...
 -----&gt; Default container check successful!
@@ -102,12 +102,12 @@ What happened? You have now the environment variable `$DATABASE_URL` set in the 
 Let's check:
 
 ```
-$ docker exec -ti hello-world.web.1 /bin/sh 
+$ docker exec -ti hello-world.web.1 /bin/sh
 
 [now in the container]
 
-# env | grep DATABASE 
-DATABASE_URL=postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world 
+# env | grep DATABASE
+DATABASE_URL=postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world
 ```
 
 That's it. Super easy. Now if you're using Django, you could use [kennethreitz/dj-database-url][3] to automatically parse and use it, and you're done. (Probably every framework has something similar, so just have a look).

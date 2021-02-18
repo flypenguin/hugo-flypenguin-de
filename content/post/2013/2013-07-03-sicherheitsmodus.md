@@ -13,14 +13,14 @@ tags:
 ---
 Eben in der Mailbox:
 
-> From: [...]  
+> From: [...]
 > Betreff: Drucker prntr3131 läuft im Sicherheitsmodus
-> 
-> Hallo,  
-> der Etagendrucker im 3. OG "prntr3131"  druckt zur Zeit weiße Schrift auf weißem Papier.  
+>
+> Hallo,
+> der Etagendrucker im 3. OG "prntr3131"  druckt zur Zeit weiße Schrift auf weißem Papier.
 > Die Hotline ist informiert und wird wohl einen Techniker bestellen.
-> 
-> Gruß,  
+>
+> Gruß,
 > [...]
 
 🙂

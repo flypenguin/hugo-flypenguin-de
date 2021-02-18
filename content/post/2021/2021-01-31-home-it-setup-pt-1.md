@@ -21,6 +21,6 @@ I'm using a systemd service which is able to run existing docker-compose files i
 
 CODE
 
-## 2 - 
+## 2 -
 
   * https://cert-manager.io/docs/configuration/acme/dns01/route53/

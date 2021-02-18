@@ -38,7 +38,7 @@ What I learned so far:
   * It's surprsingly easy and hard at the same time to get a [Twitter developer account][10]
   * Twitter does not permit publishing the exact same tweet multiple times in a short period of time
   * [Heroku][11] is really really nice for this, as long as you don't need to pay for it. I would be interested in alternatives.
-  * [matplotlib][12] is a _lot_ more complicated than I expected 
+  * [matplotlib][12] is a _lot_ more complicated than I expected
       * but strangely neither bokeh, nor plotly can actually export png graphics without either a separate electron app (WTF?) or a headless browser and selenium (W-T-F?!?)
   * [pandas][13] rocks, or more precisely: pandas data frames rock.
   * there does not seem to be a single properly maintained [Twitter library][14] for JavaScript, but there is at least [tweepy][15] for Python. (I mean I _want_ to try something in JS, but honestly, if everything I find is outdated, I just stay with good old Python ...)

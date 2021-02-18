@@ -22,7 +22,7 @@ But then I was kinda unsatisfied (to be honest - most probably unjustified) with
 
 That's my setup. (sorry for the crappy graphic, WordPress does not support SVG ... ?!?)
 
-<img loading="lazy" class="alignnone size-full wp-image-692" src="https://sysadminia.files.wordpress.com/2016/03/monitoring-setup.png" alt="Monitoring setup.png" width="706" height="293" srcset="https://flypenguin.de/wp-content/uploads/2016/03/monitoring-setup.png 706w, https://flypenguin.de/wp-content/uploads/2016/03/monitoring-setup-300x125.png 300w" sizes="(max-width: 706px) 100vw, 706px" /> 
+<img loading="lazy" class="alignnone size-full wp-image-692" src="https://sysadminia.files.wordpress.com/2016/03/monitoring-setup.png" alt="Monitoring setup.png" width="706" height="293" srcset="https://flypenguin.de/wp-content/uploads/2016/03/monitoring-setup.png 706w, https://flypenguin.de/wp-content/uploads/2016/03/monitoring-setup-300x125.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
 
 Cause I have consul running on every host, puppet deploying everything, I can use puppet to register the exporter services to consul, and consul to [configure prometheus][4], which has [native consul support][5].
 
@@ -72,7 +72,7 @@ Then it works like a charm.
 
 And the final bonbon: Directly after I had it running I discovered a problem:
 
-<img loading="lazy" class="alignnone size-full wp-image-706" src="https://sysadminia.files.wordpress.com/2016/03/cdcvlpnwaaarheg.jpg" alt="CdCVlPNWAAArHEg.jpg" width="833" height="215" srcset="https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg.jpg 833w, https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg-300x77.jpg 300w, https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg-768x198.jpg 768w" sizes="(max-width: 833px) 100vw, 833px" /> 
+<img loading="lazy" class="alignnone size-full wp-image-706" src="https://sysadminia.files.wordpress.com/2016/03/cdcvlpnwaaarheg.jpg" alt="CdCVlPNWAAArHEg.jpg" width="833" height="215" srcset="https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg.jpg 833w, https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg-300x77.jpg 300w, https://flypenguin.de/wp-content/uploads/2016/03/cdcvlpnwaaarheg-768x198.jpg 768w" sizes="(max-width: 833px) 100vw, 833px" />
 
 Yippieh 😀
 

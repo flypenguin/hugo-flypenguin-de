@@ -17,8 +17,8 @@ And while working with a lot of tables (which is a pain in the ass with LO) I fo
 
 To be honest, I think the autoformat was never really used by anyone, it's that crappy.
 
-[Custom table autoformat ignores background colors under certain circumstances][1]  
-[Font STYLES for Table Headers are not copied when defining auto table format][2]  
+[Custom table autoformat ignores background colors under certain circumstances][1]
+[Font STYLES for Table Headers are not copied when defining auto table format][2]
 [Table Autoformat: Allow to select if "SUM" line is present for auto format][3]
 
  [1]: https://bugs.documentfoundation.org//show_bug.cgi?id=92234

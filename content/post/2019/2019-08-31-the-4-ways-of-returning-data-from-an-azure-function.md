@@ -52,7 +52,7 @@ module.exports = function(context, req) {
     context.thisIsAnOutputBinding = {
         "my": "return value",
         "in this case": "an object"
-    }; 
+    };
     // contect.done() is only needed for synchronous functions context.done();
 }
 ```

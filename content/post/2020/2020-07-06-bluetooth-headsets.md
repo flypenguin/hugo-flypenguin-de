@@ -81,7 +81,7 @@ Compared to the over-ears they lose of course. That is to be expected, or I woul
 I have isolated the Jabra Evolve2 85 to try. Why?
 
   * _Made_ for conferencing - it has a hardware microphone in front of your mouth. It seems tech still needs this. Also if you pull it up you go mute, which is perfect.
-  * Bluetooth. 
+  * Bluetooth.
       * I wanted a mic, and so I read up on gaming headsets. Unfortunately all of them are extremely specialized for gaming, so most come with additional hardware (e.g. a dongle) and use separate connections (Bluetooth vs. custom 2.4GHz dongle) for sound vs. speech. Also they are sometimes tied to a single hardware platform, so the risk of buying an expensive good one to use on the iPhone is substantial.
   * Apparently a whole apparatus of 11 (!) microphones for speech vs. noise computation.
   * Supposedly very good sound quality.
