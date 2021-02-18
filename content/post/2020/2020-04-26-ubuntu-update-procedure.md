@@ -39,4 +39,3 @@ do-release-upgrade
 # done.
 ```
 
-&nbsp;

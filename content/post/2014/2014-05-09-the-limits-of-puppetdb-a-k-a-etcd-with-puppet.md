@@ -51,11 +51,11 @@ Now, we can do the following:
 ```
 # on each DNS server:
 $etcd_url = hiera('etcd_url')
-etcd_set_value( $etcd_url , &quot;/puppet/dns_server_for/${domain}&quot; , $my_cluster_ip )
+etcd_set_value( $etcd_url , "/puppet/dns_server_for/${domain}" , $my_cluster_ip )
 
 # on each other server:
 $etcd_url = hiera('etcd_url')
-$dns_server = etcd_get_value( $etcd_url , &quot;/puppet/dns_server_for/${domain}&quot; )
+$dns_server = etcd_get_value( $etcd_url , "/puppet/dns_server_for/${domain}" )
 resolv_conf_entry { $dns_server : }
 ```
 

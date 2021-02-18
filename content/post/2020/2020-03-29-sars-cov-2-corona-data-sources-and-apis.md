@@ -46,7 +46,7 @@ Dashboards and visualizations:
   * [**A _lot_ of user kernels on Kaggle**][10] (added 2020-04-04)
     Jupyter & R notebooks you can fool around with yourself!
 
-&nbsp;
+
 
  [1]: https://data.humdata.org/dataset/5dff64bc-a671-48da-aa87-2ca40d7abf02
  [2]: https://www.covid19survivalcalculator.com/download

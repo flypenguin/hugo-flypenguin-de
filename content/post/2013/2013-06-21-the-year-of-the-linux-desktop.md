@@ -19,4 +19,3 @@ Dennoch bin ich von der Entwicklung der letzten Jahre alles andere als begeister
 
 Und ja, ich fange mein neues Blog mit einem klein wenig Gemecker an. Man gönnt sich ja sonst nix 🙂 . Trotz allem bin ich ein Fan, man redet schließlich nicht über Dinge, die einem egal sind.
 
-&nbsp;

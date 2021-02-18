@@ -30,13 +30,13 @@ class MyThread(Thread):
     def run(self):
         os.chdir(self.mydir)
         time.sleep(2)
-        print(&quot;I'm (%s) in directory %s&quot;
+        print("I'm (%s) in directory %s"
               % (str(self), os.getcwd()))
 
-if __name__ == &quot;__main__&quot;:
-    MyThread(&quot;/tmp&quot;).start()
+if __name__ == "__main__":
+    MyThread("/tmp").start()
     time.sleep(1)
-    MyThread(&quot;/&quot;).start()
+    MyThread("/").start()
 ```
 
 Result is:

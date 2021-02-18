@@ -28,6 +28,6 @@ echo "ALTER TABLE public.django_admin_log OWNER TO <new_owner>;" | psql -U <curr
 # ...
 ```
 
-&nbsp;
+
 
  [1]: https://stackoverflow.com/a/52060981/902327

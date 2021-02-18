@@ -66,7 +66,7 @@ Currently I use cloudformation to set everything up. And although it's an awesom
 
 Pressure: 3
 
-&nbsp;
+
 
  [1]: http://docs.rancher.com/rancher/rancher-services/storage-service/
  [2]: https://aws.amazon.com/de/efs/

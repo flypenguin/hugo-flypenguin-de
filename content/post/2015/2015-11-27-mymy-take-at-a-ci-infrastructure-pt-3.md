@@ -82,6 +82,6 @@ For each base container (or "pure" Dockerfile projects), we extend this with a b
 
 So this is my state so far. If anyone reads this, I would be interested in comments or feedback.
 
-&nbsp;
+
 
  [1]: https://sysadminia.wordpress.com/2015/11/27/mymy-take-at-a-ci-infrastructure-pt-2/

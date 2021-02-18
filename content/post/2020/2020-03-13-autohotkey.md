@@ -54,6 +54,6 @@ CheckReload() {
   Return
 ```
 
-&nbsp;
+
 
  [1]: https://www.autohotkey.com/

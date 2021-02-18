@@ -18,4 +18,3 @@ aws ec2 describe-instances | \
   jq '.Reservations[].Instances[] | {IP: .PrivateIpAddress, ID: .InstanceId, Name: .Tags[] | select(.Key=="Name").Value}'
 ```
 
-&nbsp;

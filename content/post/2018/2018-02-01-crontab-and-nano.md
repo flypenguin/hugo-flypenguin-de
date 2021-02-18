@@ -19,6 +19,6 @@ Well, I had this. I [found the answer][1]:
 select-editor
 ```
 
-&nbsp;
+
 
  [1]: https://askubuntu.com/a/264720

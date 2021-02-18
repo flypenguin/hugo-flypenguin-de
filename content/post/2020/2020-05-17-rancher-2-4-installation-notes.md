@@ -23,7 +23,7 @@ These are my notes:
   * **Installing Rancher using the quickstart repo is a PITA on a Mac**.
     For two reasons: First you have to install the "rke" provider manually (really annoying), and second terraform can't import another module And basically a shit idea if you want to pitch this to your colleagures. You have to clone, install plugins, wrap modules, do ssh, all sorts of stuff which is just. Too. Complicated.
 
-&nbsp;
+
 
  [1]: https://rancher.com
  [2]: https://rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/advanced/

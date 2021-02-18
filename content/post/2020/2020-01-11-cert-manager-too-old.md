@@ -25,7 +25,7 @@ Wrong.
 
 And just like that I had my certificates back. Wasn't that easy? 😀
 
-&nbsp;
+
 
  [1]: https://helm.sh/blog/migrate-from-helm-v2-to-helm-v3/
  [2]: https://github.com/jetstack/cert-manager/issues/1143#issuecomment-471219707

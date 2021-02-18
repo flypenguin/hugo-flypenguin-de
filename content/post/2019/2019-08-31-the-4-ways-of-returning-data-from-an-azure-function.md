@@ -70,7 +70,7 @@ module.exports = async function(context) {
 };
 ```
 
-&nbsp;
+
 
 [Source here][1].
 
