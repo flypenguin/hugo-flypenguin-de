@@ -19,7 +19,8 @@ I wanted to switch from an in-container database setup to an external database s
 
 And now the actual command lines:
 
-<pre># create socket directory
+```
+# create socket directory
 $ cd RANCHER_MYSQL_MOUNT
 $ mkdir sockets
 
@@ -30,11 +31,13 @@ $ docker run -d --name temp-mysql -v $(pwd)/sockets:/var/run/mysqld -v $(pwd):/v
 $ mysqldump -S ./sockets/mysqld.sock --add-drop-database --add-drop-table --add-drop-trigger --routines --triggers cattle &gt; cattle.sql
 
 # restore the database in AWS / whatever
-$ mysql -u USERNAME -p -h DB_HOST DB_NAME &lt; cattle.sq</pre>
+$ mysql -u USERNAME -p -h DB_HOST DB_NAME &lt; cattle.sq
+```
 
 (Don't forget to stop the sammersbn container once you're done). I have configured puppet to start rancher. The final configuration in puppet looks like this:
 
-<pre>::docker::run { 'rancher-master':
+```
+::docker::run { 'rancher-master':
   image   =&gt; 'rancher/server',
   ports   =&gt; "${rancher_port}:8080",
   volumes =&gt; [],
@@ -45,7 +48,8 @@ $ mysql -u USERNAME -p -h DB_HOST DB_NAME &lt; cattle.sq</pre>
     "CATTLE_DB_CATTLE_MYSQL_USERNAME=${db_user}",
     "CATTLE_DB_CATTLE_MYSQL_PASSWORD=${db_pass}",
   ],
-}</pre>
+}
+```
 
 Restart, and it seems to be working just fine. To check go to http://RANCHER_URL/admin/ha (yes, we still use HTTP internally, it will change), and you should see this:
 

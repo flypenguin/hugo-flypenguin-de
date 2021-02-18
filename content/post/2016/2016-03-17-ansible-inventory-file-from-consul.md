@@ -14,4 +14,6 @@ tags:
 ---
 Quick self-reminder:
 
-<pre>curl consul.domain:8500/v1/catalog/nodes | jq '.[]|.Address' | tr -d '"'</pre>
+```
+curl consul.domain:8500/v1/catalog/nodes | jq '.[]|.Address' | tr -d '"'
+```

@@ -14,4 +14,6 @@ If you want to download and save it so <something> stops f*cking bugging you, yo
 
 Here's a quick way. Shamelessly stolen from here: http://is.gd/A11rNR
 
-<pre>openssl s_client -host google.com -port 443 -prexit -showcerts</pre>
+```
+openssl s_client -host google.com -port 443 -prexit -showcerts
+```

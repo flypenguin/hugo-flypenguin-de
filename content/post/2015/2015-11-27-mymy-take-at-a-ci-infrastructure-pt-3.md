@@ -19,14 +19,16 @@ We are [done with the build][1], now we have a binary. I went for something simp
 
 But containerizing it should be not hard, given a moderately complex software with a couple of well thought-of build scripts. So I went for this:
 
-<pre>/my_code/
+```
+/my_code/
 <strong>   |--- docker/</strong>
 <strong>   |      |--- prepare.sh     # optional</strong>
 <strong>   |      |--- Dockerfile     # required ;)</strong>
    |--- main.c
    |--- SELECT_BUILD_CONTAINER
    <strong>|--- build/                # created by the build</strong>
-<strong>          |--- ...</strong></pre>
+<strong>          |--- ...</strong>
+```
 
 Now it get's straightforward: The build scripts in TeamCity ...
 
@@ -40,14 +42,18 @@ Now it get's straightforward: The build scripts in TeamCity ...
 
 A docker cotainer is referenced like this:
 
-<pre>some/thing:and_a_tag</pre>
+```
+some/thing:and_a_tag
+```
 
 How do we choose how to name the container we just built? Two versions.
 
 For projects which contain _nothing but a Dockerfile_ (which we have, cause our build containers are also versioned, of course), I enforce this combination:
 
-<pre>Repository name: docker-one-two
-... will yield:  one/two:1234abc9-321 (as container repo/name:tag)</pre>
+```
+Repository name: docker-one-two
+... will yield:  one/two:1234abc9-321 (as container repo/name:tag)
+```
 
 The build script enforces the scheme "docker-one-two", and takes "one" and "two" automatically as names for the container. Then "1234abc9" is the git commit id (short), and "321" is the build number.
 
@@ -55,8 +61,10 @@ Why not only the git commit ID? Because between builds, the same result is not g
 
 For "simple" or "pure" code builds I use the following scheme:
 
-<pre>Repository name: some-thing
-... will yield:  some/thing:1234abc9</pre>
+```
+Repository name: some-thing
+... will yield:  some/thing:1234abc9
+```
 
 Same reasoning.
 

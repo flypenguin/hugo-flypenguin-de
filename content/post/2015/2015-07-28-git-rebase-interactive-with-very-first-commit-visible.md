@@ -15,7 +15,9 @@ Ever wanted to squash the first two commits with a "git rebase -i"? No? Me neith
 
 [Stackoverflow to the rescue][1]:
 
-<pre>git rebase -i --root</pre>
+```
+git rebase -i --root
+```
 
 Done.
 

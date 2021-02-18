@@ -18,7 +18,8 @@ It's not so easy, though. Cause what if you want to limit access to a certain IA
 
 I got "HTTP 500" errors from the docker registry when I first deployed. My configuration, which was **wrong**, looked like this:
 
-<pre>"RegistryIAMUser" : {
+```
+"RegistryIAMUser" : {
   "Type" : "AWS::IAM::User"
 },
 "RegistryIAMUserAccessKey" : {
@@ -43,11 +44,13 @@ I got "HTTP 500" errors from the docker registry when I first deployed. My confi
       }]
     }
   }
-}</pre>
+}
+```
 
 Since this didn't work really well, I googled my a** off and found a little post, which used a UserPolicy (instead of a bucket policy, which is basically the other way around), but did _one_ thing different. My **working** configuration is now ... (let's see if you can see the difference):
 
-<pre>[... same as above ...]
+```
+[... same as above ...]
 
 "UserPolicyRegistryPrivateAccess" : {
   "Type" : "AWS::IAM::Policy",
@@ -66,7 +69,8 @@ Since this didn't work really well, I googled my a** off and found a little post
       }]
     }
   }
-}</pre>
+}
+```
 
 See it?
 

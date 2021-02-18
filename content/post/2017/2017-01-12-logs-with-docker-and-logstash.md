@@ -37,7 +37,8 @@ Logstash sees a stream of lines. When the data is sent to it, logstash gets a lo
 
 GELF gives us this information out-of-the-box:
 
-<pre class="lang:default highlight:0 decode:true ">{
+```default
+{
        "source_host" =&gt; "10...",
              "level" =&gt; 6,
            "created" =&gt; "2017-01-09T13:41:06.039364628Z",
@@ -53,22 +54,27 @@ GELF gives us this information out-of-the-box:
                "tag" =&gt; "",
           "image_id" =&gt; "sha256:...",
       "container_id" =&gt; "..."
-}</pre>
+}
+```
 
 This is a lot of information what is useful later.
 
 Compared to that, [**syslog**][1] looks rather bleak (all according to the examples on the docker pages):
 
-<pre class="lang:default highlight:0 decode:true ">Aug  7 18:33:19 HOSTNAME docker/hello-world/foobar/5790672ab6a0[9103]: Hello from Docker.</pre>
+```default
+Aug  7 18:33:19 HOSTNAME docker/hello-world/foobar/5790672ab6a0[9103]: Hello from Docker.
+```
 
 Yes, you can tag that, but you also _have_ to. Not with GELF. Also it's already beautifully structured in fields, whereas with syslog you'd probably have to agree on a scheme and deconstruct later.
 
 Over to [**fluentd**][2]:
 
-<pre class="lang:default highlight:0 decode:true ">2015-09-01 15:10:40 -0600 docker.3fd8678d487e: \
+```default
+2015-09-01 15:10:40 -0600 docker.3fd8678d487e: \
     {"source":"stdout","log":"Hello Fluentd!",\
      "container_id":"3fd8678d487e540c7a303e1613101e746c5012f3317434eda93f24351c1928f7",\
-     "container_name":"/angry_kalam"}</pre>
+     "container_name":"/angry_kalam"}
+```
 
 This is ... not so helpful. _Especially_ the container name and the container ID are super useless, because there's no way I can get the image name information out of it. You _might_ be able to tag accordingly, but the same now applies as with syslog (except here we already have a document structure it seems). I would have liked to use fluentd, because there's a low-resource agent on each host, and we don't need a central collector (i.e. logstash) for lossy UDP traffic. But that made me choose GELF for the first try.
 
@@ -86,22 +92,26 @@ The JSON-messages are not a problem. Check whether something starts and stops wi
 
 The _multiline_ messages though ... . From logstash perspective, there's just a stream of lines. For each line the information of the container is present, but for logstash that's just dumb metadata without any meaning. So imagine this sequence of events:
 
-<pre class="lang:default highlight:0 decode:true ">EVENT 0: CONTAINER_1_HOST_1 JSON-MESSAGE-LINE
+```default
+EVENT 0: CONTAINER_1_HOST_1 JSON-MESSAGE-LINE
 EVENT 1: CONTAINER_2_HOST_2 JSON-MESSAGE-LINE
 EVENT 2: CONTAINER_3_HOST_1 MULTILINE LOG - LINE 0
 EVENT 3: CONTAINER_4_HOST_3 JSON-MESSAGE-LINE
-EVENT 4: CONTAINER_1_HOST_1 MULTILINE LOG - LINE 0</pre>
+EVENT 4: CONTAINER_1_HOST_1 MULTILINE LOG - LINE 0
+```
 
 If I naively use the multiline _codec_ like this:
 
-<pre class="lang:default highlight:0 decode:true ">input {
+```default
+input {
   stdin {
     codec =&gt; multiline {
       pattern =&gt; "^\s"
       what =&gt; "previous" 
     } 
   } 
-}</pre>
+}
+```
 
 I guess that would not work. Why? Because either Event 4 gets appended to the line of Event 3, which is wrong, or (I have no clue how the codecs work) to Event 2, which is equally wrong (different container source).
 
@@ -113,7 +123,8 @@ To add insult to injury I deploy logstash using Docker, and the Docker image now
 
 Our test-config for now, which seems to be working well so far (couple of test runs only), is:
 
-<pre class="lang:default highlight:0 decode:true ">input { gelf {} }
+```default
+input { gelf {} }
 
 filter {
 
@@ -145,7 +156,8 @@ filter {
 
 }
 
-output { # ... }</pre>
+output { # ... }
+```
 
 That works somewhat well. All in all, I am pretty pleased after the whole thing, because once you have overcome the obstacles of the logstash config language, plugins, docker configuration, etc., it is running pretty smoothly.
 

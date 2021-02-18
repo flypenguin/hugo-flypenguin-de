@@ -17,7 +17,9 @@ Love Python. Love PyCharm. Love Arch Linux.
 
 Unfortunately Arch sneakily updated Python to 3.6. Cool, new version ... but hey, why don't my debug runs in PyCharm work any more??
 
-<pre class="lang:default decode:true ">ImportError: libpython3.5m.so.1.0: cannot open shared object file: No such file or directory</pre>
+```default
+ImportError: libpython3.5m.so.1.0: cannot open shared object file: No such file or directory
+```
 
 Yup, pretty confusing. It seems unable to find shared python 3.5 library. Well. After some cursing, turns out the solution is pretty simple (if you know what to do):
 
@@ -27,11 +29,13 @@ Yup, pretty confusing. It seems unable to find shared python 3.5 library. Well. 
 
 Like this:
 
-<pre class="lang:default decode:true ">$ PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.5.2
+```default
+$ PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.5.2
 [...]
 $ sudo $HOME/.pyenv/versions/3.5.2/bin/python "/opt/pycharm-professional/helpers/pydev/setup_cython.py" build_ext --inplace
 [...]
-$ _</pre>
+$ _
+```
 
 That solved it for me 🙂
 

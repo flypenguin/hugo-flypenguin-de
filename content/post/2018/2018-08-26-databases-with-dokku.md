@@ -26,11 +26,14 @@ Dokku is the perferct middle ground. Let's see why.
 
 For me it was the existing [postgres plugin][2] which you can simply install and use. The whole process is incredibly easy, takes wbout two commands, and looks like this (let's assume our "hello world" container uses a database):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">$ sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres</pre>
+```
+$ sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres
+```
 
 That's it, again.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">$ dokku postgres:create hello-world
+```
+$ dokku postgres:create hello-world
 
 dokku postgres:create hello-world
 Waiting for container to be ready
@@ -54,13 +57,14 @@ CONTAINER ID   IMAGE                      COMMAND                  CREATED      
 cc99cccacf2c   dokku/hello-world:latest   "/bin/sh -c 'php-fpm…"   2 minutes ago   Up 2 minutes   80/tcp     hello-world.web.1
 785ef252c748   postgres:10.2              "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   5432/tcp   dokku.postgres.hello-world
 [...]
-</pre>
+```
 
 This creates a database container with postgres 10.2, as you can see. You can influence a lot of behavior by using environment variables, see the GitHub page for more info.
 
 Then you link the container to the running app:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">$ dokku postgres:link hello-world hello-world
+```
+$ dokku postgres:link hello-world hello-world
 -----&gt; Setting config vars
        DATABASE_URL: postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world
 -----&gt; Restarting app hello-world
@@ -88,7 +92,8 @@ Then you link the container to the running app:
 -----&gt; Shutting down old containers in 60 seconds
 =====&gt; 14c349cb496d95cc4be1833f2e7f6ef2bef099a37c2a22cd4dcdb542f09bea0f
 =====&gt; Application deployed:
-       http://hello-world.my-paas.for-myself.com</pre>
+       http://hello-world.my-paas.for-myself.com
+```
 
 And done.
 
@@ -96,13 +101,14 @@ What happened? You have now the environment variable <span class="lang:default d
 
 Let's check:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">$ docker exec -ti hello-world.web.1 /bin/sh 
+```
+$ docker exec -ti hello-world.web.1 /bin/sh 
 
 [now in the container]
 
 # env | grep DATABASE 
 DATABASE_URL=postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world 
-</pre>
+```
 
 That's it. Super easy. Now if you're using Django, you could use [kennethreitz/dj-database-url][3] to automatically parse and use it, and you're done. (Probably every framework has something similar, so just have a look).
 

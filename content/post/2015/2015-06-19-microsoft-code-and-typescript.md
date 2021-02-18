@@ -24,18 +24,20 @@ I wanted ...
 
 So here's how to get it to work:
 
-<pre>mkdir my_project_dir
+```
+mkdir my_project_dir
 cd my_project_dir
 brew install node            # I'm on Mac ;)
 npm install -g typescript    # install globally
 npm install node-hid         # install locally
-</pre>
+```
 
 Fire up Code, and "open" the project directory "my\_project\_dir".
 
 Press "CMD-SHIFT-P" (probably CTRL-SHIFT on non-OSX machines) and search for **"Configure task runner"**. Here you use this configuration:
 
-<pre>{
+```
+{
   "version": "0.1.0",
   "command": "tsc",
   "isShellCommand": true,
@@ -43,24 +45,26 @@ Press "CMD-SHIFT-P" (probably CTRL-SHIFT on non-OSX machines) and search for **"
   "args": [],
   "problemMatcher": "$tsc"
 }
-</pre>
+```
 
 Then create a new file called "test.ts", with the following content:
 
-<pre>// typescript does not know "require".
+```
+// typescript does not know "require".
 // you have to convince it it "will exist at runtime".
 // http://stackoverflow.com/a/12742371/902327
 declare function require(name:string);
 var HID = require('node-hid');
 var devices = HID.devices();
 console.log(devices);
-</pre>
+```
 
 Now if you press "CMD-SHIFT-B" this should compile and create a file called "test.js".
 
 I don't know (yet) how to run it from within Code, so on the command line I can test it by doing ...
 
-<pre>$ node test.js
+```
+$ node test.js
  { vendorId: 1452,
     productId: 589,
     path: 'USB_05ac_024d_fa120000',
@@ -100,7 +104,8 @@ I don't know (yet) how to run it from within Code, so on the command line I can 
     manufacturer: 'Apple Inc.',
     product: 'Apple Internal Keyboard / Trackpad',
     release: 521,
-    interface: -1 } ]</pre>
+    interface: -1 } ]
+```
 
 * * *
 

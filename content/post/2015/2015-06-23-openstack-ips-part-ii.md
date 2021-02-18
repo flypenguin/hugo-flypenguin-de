@@ -15,8 +15,10 @@ Just a short one. Now that I can list IPs (see last post), it might be nice to a
 
 And there is.
 
-<pre>$ openstack server list
-$ nova floating-ip-associate &lt;server-uuid&gt; &lt;floating-IP&gt;</pre>
+```
+$ openstack server list
+$ nova floating-ip-associate &lt;server-uuid&gt; &lt;floating-IP&gt;
+```
 
 (_Note:_ The floating-ip is the actual IP, not the UUID _of_ the OpenStack floating IP)
 

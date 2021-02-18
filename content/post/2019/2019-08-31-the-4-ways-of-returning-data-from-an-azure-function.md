@@ -17,7 +17,8 @@ Why have one if you can have many? Well, beats me, but I thought I'd collect the
 
 So, most of them have to do with the file <span class="lang:default decode:true crayon-inline ">function.json</span>  file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="json">{
+```
+{
     "bindings": [{
         "type": "httpTrigger",
         "name": "req",
@@ -31,7 +32,8 @@ So, most of them have to do with the file <span class="lang:default decode:true 
         "name": "anotherBinding",
         "direction": "out"
     }]
-}</pre>
+}
+```
 
 More precisely, with the "out" type binding that is defined in the 2nd "bindings" object. The **"out" binding has a "name" property,** which is basically relevant for all of the methods.
 
@@ -45,13 +47,15 @@ The context object has one property per defined "out" binding. So if our propert
 
 Simply put, you just assign the value to a <span class="lang:default decode:true crayon-inline ">context</span>  member and you're done:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">module.exports = function(context, req) {
+```
+module.exports = function(context, req) {
     context.thisIsAnOutputBinding = {
         "my": "return value",
         "in this case": "an object"
     }; 
     // contect.done() is only needed for synchronous functions context.done();
-}</pre>
+}
+```
 
 [Source here][1].
 
@@ -59,11 +63,12 @@ Simply put, you just assign the value to a <span class="lang:default decode:true
 
 With the bindings given above, you can assign the values to the context property, but you can also return an object whose keys correspond to the binding names:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js">module.exports = async function(context) {
+```
+module.exports = async function(context) {
   return { thisIsAnOutputBinding: 42, anotherBinding: 43 };
   // of course, instead of 42/43 you can put any js object here.
 };
-</pre>
+```
 
 &nbsp;
 
@@ -73,7 +78,8 @@ With the bindings given above, you can assign the values to the context property
 
 This is basically a variant of method 1. Why does it exist? No one knows. Apparently the context object has a <span class="lang:default decode:true crayon-inline ">.bindings</span>  property, which in turn again has properties which name-match the defined out bindings. So this is another possibility, and I think the <span class="lang:default decode:true crayon-inline ">return</span>  is unnecessary:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js">module.exports = async function(context) {
+```
+module.exports = async function(context) {
   let retMsg = "Hello, world!";
   context.bindings.thisIsAnOutputBinding = {
     body: retMsg
@@ -81,7 +87,7 @@ This is basically a variant of method 1. Why does it exist? No one knows. Appare
   context.bindings.anotherBinding = retMsg;
   return;
 };
-</pre>
+```
 
 [Source here][1].
 
@@ -89,12 +95,13 @@ This is basically a variant of method 1. Why does it exist? No one knows. Appare
 
 If you're using a sync method, you can't return an object, but you can call <span class="lang:js decode:true crayon-inline ">context.done(err, obj)</span> .
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js">module.exports = async function(context) {
+```
+module.exports = async function(context) {
   context.done(null, {
     thisIsAnOutputBinding: { text: "hello there, world", anotherBinding: 42 }
   });
 };
-</pre>
+```
 
 [Source here][2].
 
@@ -104,20 +111,22 @@ Probably someone said "Well, if I only have one output binding, why should I exp
 
 For this the configuration in function.json looks a bit different:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="json">{
+```
+{
   "bindings": [
     { "type": "someType", name: "req", direction: "in" },
     { "type": "someOutType", direction: "out", name: "$return" }
   ]
 }
-</pre>
+```
 
 You have to set exactly one "out" type binding, and the name must be "$return". Then you can do this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js">module.exports = async function(context, req) {
+```
+module.exports = async function(context, req) {
   return "woohooo!!";
 };
-</pre>
+```
 
 [Source here][3].
 
@@ -125,13 +134,14 @@ You have to set exactly one "out" type binding, and the name must be "$return". 
 
 You thought we were done? Noooooo. For http methods, you can diretly return the body object which is then used to create the body
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js">// actually NO IDEA if this works sync, async or both
+```
+// actually NO IDEA if this works sync, async or both
 // my guess is: sync, because "context.done() is implicitly called"
 module.exports = async function(context, req) {
   rv = { body: "&lt;html/&gt;", status: 201 };
   context.res.send(rv);
 };
-</pre>
+```
 
 [Source here][4].
 

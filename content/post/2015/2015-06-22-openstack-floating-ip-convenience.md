@@ -18,7 +18,8 @@ Solution: Python script, which outputs FLOATING\_IP -> HOST\_NAME.
 
 Here it is.
 
-<pre>#!/usr/bin/env python
+```
+#!/usr/bin/env python
 
 from novaclient import client
 import novaclient.v2.floating_ips as os_fips
@@ -70,18 +71,20 @@ if __name__=="__main__":
 
     for a in ips:
         print("{:18s} {}".format(a[0], a[1]))
-</pre>
+```
 
 Sample output:
 
-<pre>$ tools/list_ips
+```
+$ tools/list_ips
 10.64.108.163      ab_1695_1_dml
 10.64.108.199      ab_1695_1_jump
 10.64.108.160      media0
 10.64.109.97       RJD1_CouchbaseA1
 10.64.109.99       RJD1_JumpServer
 10.64.109.98       RJD1_OpenshiftMaster
-10.64.109.148      tla-centos66</pre>
+10.64.109.148      tla-centos66
+```
 
 Groovy.
 

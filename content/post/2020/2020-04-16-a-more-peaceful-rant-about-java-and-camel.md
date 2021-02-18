@@ -17,7 +17,8 @@ I did it. I feel like I survived something, like I am on the path on enlightenme
 
 What did I do? I succeeded to write this Java code using the [Apache Camel library][1] (and yes, that's it - in _total_):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java">import org.apache.camel.main.Main;
+```
+import org.apache.camel.main.Main;
 
 public final class CamelPusher {
 
@@ -32,7 +33,7 @@ public final class CamelPusher {
     }
 
 }
-</pre>
+```
 
 Impresive, huh?
 
@@ -40,7 +41,8 @@ What took me longest was to add the "file:" in the line <code class="EnlighterJS
 
 Code-wise, that is. It took me even longer to set this up:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+```
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -155,11 +157,12 @@ Code-wise, that is. It took me even longer to set this up:
 
 &lt;/project&gt;
 &lt;!-- I FUCKING HATE MAVEN. --&gt;
-</pre>
+```
 
 And this, cause maybe I still don't fully get maven (and with maybe I mean definitely, and yes I know there's an error in the Makefile, I'm gonna fix it - later):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">all: clean build prepare-test test
+```
+all: clean build prepare-test test
 .PHONY: all
 
 clean:
@@ -270,13 +273,14 @@ set-version: _set_version _tag build _snap_tag
 
 .PHONY: setver
 setver: set-version
-</pre>
+```
 
 So this is it. That abomination took me days to build.
 
 So now I can do "<code class="EnlighterJSRAW" data-enlighter-language="generic">make release</code>", get a .jar file, and place something like this next to it:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+```
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!--
   DOKUMENTATION:
   https://camel.apache.org/manual/latest/spring.html
@@ -292,7 +296,7 @@ So now I can do "<code class="EnlighterJSRAW" data-enlighter-language="generic">
         &lt;to uri="file:to_here_as_well"/&gt;
     &lt;/route&gt;
 &lt;/routes&gt;
-</pre>
+```
 
 ... having a freely configurable, all-purpose, no-nonsense Camel engine to my disposal, which I can then deploy to any host of my liking to do things which are useful. In that case - it's supposed to transfer files (the "left" side of the system, a couple of deployments) to S3, and then pull them out (the "right" side of it, one deployment) into a folder on a target machine.
 

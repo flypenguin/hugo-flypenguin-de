@@ -14,7 +14,8 @@ format: aside
 ---
 This sucks monkey ass, mainly because I didn't think of that before. And that's just one example why multi-threaded (soon to be -processing, probably) applications are hard.
 
-<pre class="brush: plain; title: ; notranslate" title="">import subprocess as sp
+```
+import subprocess as sp
 import time
 import os
 from threading import Thread
@@ -36,9 +37,11 @@ if __name__ == &quot;__main__&quot;:
     MyThread(&quot;/tmp&quot;).start()
     time.sleep(1)
     MyThread(&quot;/&quot;).start()
-</pre>
+```
 
 Result is:
 
-<pre class="brush: plain; title: ; notranslate" title="">I'm (&lt;MyThread(Thread-1, started 140195858716416)&gt;) in directory /
-I'm (&lt;MyThread(Thread-2, started 140195850323712)&gt;) in directory /</pre>
+```
+I'm (&lt;MyThread(Thread-1, started 140195858716416)&gt;) in directory /
+I'm (&lt;MyThread(Thread-2, started 140195850323712)&gt;) in directory /
+```

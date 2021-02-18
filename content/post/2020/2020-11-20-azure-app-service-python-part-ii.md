@@ -20,7 +20,8 @@ So, why I am again angry? Cause I want to deploy an app service, using terraform
 
 Example:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-title="terraform-app-service-plan">resource "azurerm_app_service_plan" "plan" {
+```
+resource "azurerm_app_service_plan" "plan" {
   name                = "pkd-appservices0"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -31,9 +32,11 @@ Example:
     tier = "Dynamic"     # WRONG, use at least "Basic"
     size = "Y1"          # WRONG, use at least "B1"
   }
-}</pre>
+}
+```
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">resource "azurerm_app_service" "appservice" {
+```
+resource "azurerm_app_service" "appservice" {
   name                = random_string.server.result
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -43,17 +46,22 @@ Example:
     scm_type         = "LocalGit"
     linux_fx_version = "PYTHON|3.8"
   }
-}</pre>
+}
+```
 
 Now. What happens? Let's see:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">Error creating App Service "wzkytawt" (Resource Group "pkd-it-appservices0"): 
+```
+Error creating App Service "wzkytawt" (Resource Group "pkd-it-appservices0"): 
    web.AppsClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- 
-   Original Error: autorest/azure: Service returned an error. Status=&lt;nil&gt; &lt;nil&gt;</pre>
+   Original Error: autorest/azure: Service returned an error. Status=&lt;nil&gt; &lt;nil&gt;
+```
 
 What? Okay, our app service fails without any indication. By setting "<code class="EnlighterJSRAW" data-enlighter-language="generic">TF_LOG=TRACE</code>" and reading through 100s of lines of code we get this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">Consumption pricing tier cannot be used for regular web apps</pre>
+```
+Consumption pricing tier cannot be used for regular web apps
+```
 
 What the fuck is a "consumption pricing tier"? Well, turns out MS doesn't know as well, at least it's described exactly nowhere. Also, **can you get a list of tiers?** No! Of _course_ not! Why would you?  [Stackoverflow to the rescue][1], again, btw, and no idea where that guy pulled that priceless list from.
 
@@ -61,13 +69,15 @@ So, set things to "F1 | Free" and everything works.
 
 ... or not. Now we get this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">There was a conflict.                                              (really?!)
+```
+There was a conflict.                                              (really?!)
 
 64 Bit worker processes cannot be used for the site as the plan 
 does not allow it.                                                 (WTF?)
 
 For more information on pricing and features, please see: 
-https://aka.ms/appservicepricingdetails                            (oh! a link! NICE)</pre>
+https://aka.ms/appservicepricingdetails                            (oh! a link! NICE)
+```
 
 Formatting and comments by me ... . Now, wondering why the fuck a multi-billion-dollar corp can do less than my Raspi (run 64bit code) I head over to said page. And **find nothing**. There is not a single mention about 64bit, 32bit, or anything helpful. Just ... prices.
 

@@ -16,7 +16,8 @@ This is just a test for syntax highlighting. Which I really really really wanted
 
 So, let's try:
 
-<pre class="theme:github lang:python decode:true" title="python syntax highlight test">import random
+```python
+import random
 
 class RndTest:
     def __init__(self):
@@ -25,7 +26,8 @@ class RndTest:
 
     @classmethod
     def do_nothing(cls, nothing):
-        print("Doing {} now ;)".format(nothing))</pre>
+        print("Doing {} now ;)".format(nothing))
+```
 
 That doesn't look so bad, right?
 

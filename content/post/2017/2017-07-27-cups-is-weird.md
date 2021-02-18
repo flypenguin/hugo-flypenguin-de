@@ -16,12 +16,13 @@ CUPS is the printing system developed by Apple which is now also in use on prett
 
 This is what you have to do to get CUPS working on your machine:
 
-<pre class="lang:default decode:true " title="Install CUPS on Arch linux">$ pacman -S cups
+```default
+$ pacman -S cups
 [...]
 $ usermod -aG sys MY_USER
 [...]
 $ systemctl enable org.cups.cupsd
 $ systemctl start org.cups.cupsd
-</pre>
+```
 
 The magic is line 2 - adding your user to the sys group. If you don't do this, you won't be able to use the web interface at all. Which is a shame, since then you can't do anything useful (install printers, manage jobs, etc ...).

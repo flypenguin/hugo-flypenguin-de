@@ -15,4 +15,6 @@ I want my clipboard history on CTRL-Ö. Don't ask why.
 
 Here's what you can enter in GNOME to get this:
 
-<pre>&lt;Ctrl&gt;odiaeresis</pre>
+```
+&lt;Ctrl&gt;odiaeresis
+```

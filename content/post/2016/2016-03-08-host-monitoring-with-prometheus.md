@@ -28,7 +28,8 @@ Cause I have consul running on every host, puppet deploying everything, I can us
 
 The prometheus configuration to pull all this is pretty simple actually, once it works:
 
-<pre>global:
+```
+global:
   scrape_interval: 10s
   scrape_timeout: 3s
   evaluation_interval: 10s
@@ -58,7 +59,8 @@ scrape_configs:
       - source_labels:  ['id']
         regex:          '/docker/(.{8}).*'
         target_label:   item
-        replacement:    '$1'</pre>
+        replacement:    '$1'
+```
 
 Some caveats:
 

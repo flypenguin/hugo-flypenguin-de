@@ -13,7 +13,8 @@ tags:
 ---
 [That's][1] a really great piece of documentation. [This][2] **does not work**:
 
-<pre class="lang:default highlight:0 decode:true"># let's clone each event, one goes to somewhere, one goes to somewhere else.
+```default
+# let's clone each event, one goes to somewhere, one goes to somewhere else.
 # note this was copy-pasted from the docs!
 # see here: https://is.gd/QSHNps
 # again. THIS DOES NOT WORK.
@@ -30,18 +31,21 @@ output {
     # go to somewhere else
     s3 { ... }
   }
-}</pre>
+}
+```
 
 Why? Because **the clone filter will not clone anything.** And the documentation is super unclear on this. If you know it, you can read it - if you don't know this, you'll ... google.
 
 For it to actually clone anything you have to specify the 'clones => ["one", ...]' parameter. _Then_ it will clone, and add the token field as expected. Like this:
 
-<pre class="lang:default highlight:0 decode:true ">filter {
+```default
+filter {
   clone {
     clones =&gt; ["logz"]     # NOW it will clone.
     add_field =&gt; { "token" =&gt; "ABCDEF" }
   }
-}</pre>
+}
+```
 
 Interestingly the "clones =>" [parameter is _optional_][3], which just confuses the shit out of me.
 

@@ -16,18 +16,22 @@ Anyway, first operation: Create a bunch of S3 buckets and IAM roles to interface
 
 Beacause when you create IAM capabilities with cloudformation, you get this error:
 
-<pre>{
+```
+{
     "CapabilitiesReason": "The following resource(s) require capabilities: [AWS::IAM::AccessKey, AWS::IAM::User]", 
     "Capabilities": [
         "CAPABILITY_IAM"
     ], 
     "Parameters": []
-}</pre>
+}
+```
 
 ... which is a fancy way of saying "do this":
 
-<pre># aws cloudformation create-stack \
+```
+# aws cloudformation create-stack \
     --template-url file://env.json 
-    --capabilities CAPABILITY_IAM</pre>
+    --capabilities CAPABILITY_IAM
+```
 
 ... which you don't really find easily with google. Or everybody knows, but me. Gnaah.

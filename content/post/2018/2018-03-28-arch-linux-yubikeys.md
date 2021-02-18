@@ -13,7 +13,8 @@ tags:
 ---
 To use "ykman" for arch linux, you do this:
 
-<pre class="lang:default decode:true">$ yaourt -S yubikey-manager pcsclite                 # THESE PACKAGES
+```default
+$ yaourt -S yubikey-manager pcsclite                 # THESE PACKAGES
 [...]
 $ systemctl start pcscd                              # START SERVICE
 $ ykman info                                         # TEST
@@ -29,6 +30,7 @@ Device capabilities:
     OPGP:	Enabled
     PIV:	Enabled
     OATH:	Enabled
-$ _</pre>
+$ _
+```
 
 Sounds easy? Still had to google the things.

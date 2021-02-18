@@ -28,9 +28,11 @@ So, **the Linux-based (of course) solution for Windows 10 and VeraCrypt is:**
   * **First,** [use the Linux boot manager][1] (so add Win10 to Linux boot mgr and use this, not the other way around)
   * **Second,** in systemd-boot you have to [refer to the VeraCrypt boot EFI][2], _not_ the Win10 one:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic"># esp partition - /loader/entries/winvera.conf
+```
+# esp partition - /loader/entries/winvera.conf
 title Windows 10 VeraCrypt
-efi /EFI/VeraCrypt/DcsBoot.efi</pre>
+efi /EFI/VeraCrypt/DcsBoot.efi
+```
 
 This is in fact all you need to do. Now, if Windows fucks up its own boot loader, it seems systemd-boot just ignores everything, loads the correct VeraCrypt bootloader (as it is supposed to be), and all is well.
 

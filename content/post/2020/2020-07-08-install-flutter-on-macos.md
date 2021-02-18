@@ -22,13 +22,15 @@ First, the non-CLI actions:
 
 That's about it for now. Then do some CLI magic:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">brew tap dart-lang/dart
+```
+brew tap dart-lang/dart
 brew install dart android-studio android-sdk
 sudo gem install cocoapods
 pod setup
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
-flutter doctor --android-licenses</pre>
+flutter doctor --android-licenses
+```
 
 After that some more UI stuff:
 

@@ -15,14 +15,15 @@ tags:
 ---
 I tried installing homebrew for about 3 days following [the][1] [completely][2] [identical][3] [howto][4] postings out there (i.e. "prefix with 'arch -x86_64'"). Alas, it didn't work:
 
-<pre class="brush: plain; title: ; notranslate" title="">$ arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+$ arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 Password:
 Homebrew is not (yet) supported on ARM processors!
 Rerun the Homebrew installer under Rosetta 2.
 If you really know what you are doing and are prepared for a very broken
 experience you can use another installation option for installing on ARM:
   https://docs.brew.sh/Installation
-</pre>
+```
 
 The [other recommendation][5] (run the whole terminal under Rosetta2, scroll down to "Running a special flavor [...]") also did not work.
 

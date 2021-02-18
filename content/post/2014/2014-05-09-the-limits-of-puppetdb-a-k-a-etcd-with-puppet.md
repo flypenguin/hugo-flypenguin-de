@@ -26,7 +26,8 @@ Idea:
 
 So far, so good. Unfortunately there are a few problems with it. My first approach was something like this:
 
-<pre class="brush: plain; title: ; notranslate" title="">## THIS WILL NOT WORK
+```
+## THIS WILL NOT WORK
 
 # on every DNS server (*)
 @@resolv_conf_entry { $my_cluster_ip :
@@ -35,7 +36,7 @@ So far, so good. Unfortunately there are a few problems with it. My first approa
 
 # on every other machine:
 Resolv_conf_entry &lt;&lt;| tag == $domain |&gt;&gt;
-</pre>
+```
 
 Unfortunately this _will_ lead to a "duplicate declaration" on the client side - because _all_ of the clustered DNS servers will export this, and the `cluster_ip` is identical on the DNS server hosts.
 
@@ -47,7 +48,8 @@ The solution I came up with is [etcd][1]. A project from the girls and guys of [
 
 Now, we can do the following:
 
-<pre class="brush: plain; title: ; notranslate" title=""># on each DNS server:
+```
+# on each DNS server:
 $etcd_url = hiera('etcd_url')
 etcd_set_value( $etcd_url , &quot;/puppet/dns_server_for/${domain}&quot; , $my_cluster_ip )
 
@@ -55,7 +57,7 @@ etcd_set_value( $etcd_url , &quot;/puppet/dns_server_for/${domain}&quot; , $my_c
 $etcd_url = hiera('etcd_url')
 $dns_server = etcd_get_value( $etcd_url , &quot;/puppet/dns_server_for/${domain}&quot; )
 resolv_conf_entry { $dns_server : }
-</pre>
+```
 
 Works beautifully.
 

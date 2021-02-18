@@ -18,9 +18,11 @@ I am behind a company firewall with a man-in-the-middle SSL certificate for secu
 
 But apps which actually verify SSL connections (which is all of the apps using standard SSL/TLS/whatnot libs) do not like this. And rightfully so. But then we're left with the following problem:
 
-<pre>$ docker search test
+```
+$ docker search test
 FATA[0000] Error response from daemon: GEt https://index.docker.io/v1/search?q=test: x509: certificate signed by unknown authority
-$</pre>
+$
+```
 
 Now, to solve this on Fedora we do the following (all as root):
 

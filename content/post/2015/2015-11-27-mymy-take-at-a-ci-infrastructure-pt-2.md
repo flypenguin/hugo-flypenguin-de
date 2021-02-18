@@ -34,22 +34,26 @@ It basically goes like this. We have a docker container, which contains all nece
 
 The prerequisite of this is a build process that does not change, or at least does not change for a set of projects. We use CMake, so it's the same build commands over and over: "cmake .", "make", "make test". That's it. My first working build container looks like this:
 
-<pre>FROM 10.10.10.11:5000/runner/boost:9a443273-2
+```
+FROM 10.10.10.11:5000/runner/boost:9a443273-2
 MAINTAINER Fly Penguin &lt;fly@flypenguin.de&gt;
 RUN \
      dnf -y update && dnf -y upgrade \
   && dnf -y install cmake make gcc-c++ boost-test boost-devel \
   && dnf clean all \
   && mkdir /build
-WORKDIR /build</pre>
+WORKDIR /build
+```
 
 Building the code now is super easy:
 
-<pre>git clone ssh://... my_code
+```
+git clone ssh://... my_code
 cd my_code
 docker run --rm -v $(pwd):/build builder/boost:1234 cmake .
 docker run --rm -v $(pwd):/build builder/boost:1234 make
-docker run --rm -v $(pwd):/build builder/boost:1234 make test</pre>
+docker run --rm -v $(pwd):/build builder/boost:1234 make test
+```
 
 Done.
 
@@ -57,12 +61,16 @@ Done.
 
 There are two possibilities: In the build system configuration (read: TeamCity), or in the code. I went for the code. The reason is pretty simple: I check out a specific revision of the code, I know which container it was built with. From there I can work my way up:
 
-<pre>./mycode
+```
+./mycode
    |--- main.c
-   |--- SET_BUILD_CONTAINER</pre>
+   |--- SET_BUILD_CONTAINER
+```
 
 Guess what's in "SET\_BUILD\_CONTAINER"? Correct. Something like this:
 
-<pre>my_registry_url:5000/builder/boost:abcdef98-210</pre>
+```
+my_registry_url:5000/builder/boost:abcdef98-210
+```
 
 The build configuration in TeamCity reads the file, and acts accordingly. Later I will talk more on those tags, and in the next post I talk about containerizing the binaries.

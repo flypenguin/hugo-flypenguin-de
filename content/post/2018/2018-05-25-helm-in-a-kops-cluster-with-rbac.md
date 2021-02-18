@@ -21,8 +21,10 @@ I ran <span class="lang:default decode:true crayon-inline ">helm list</span>  t
 
 I got this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" \ 
-    cannot list configmaps in the namespace "kube-system"</pre>
+```
+Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" \ 
+    cannot list configmaps in the namespace "kube-system"
+```
 
 That sucked. And google proved ... reluctant. What I could figure out is:
 

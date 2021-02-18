@@ -17,9 +17,11 @@ Unfortunately, [homebrew switched to OpenSSL version 1.1 in v2.2][3], because Op
 
 [This fixes it][4] (for now at least):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell">brew uninstall openssl --ignore-dependencies
+```
 brew uninstall openssl --ignore-dependencies
-brew install https://github.com/tebelorg/Tump/releases/download/v1.0.0/openssl.rb</pre>
+brew uninstall openssl --ignore-dependencies
+brew install https://github.com/tebelorg/Tump/releases/download/v1.0.0/openssl.rb
+```
 
 References:
 

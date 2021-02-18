@@ -17,18 +17,21 @@ tags:
 
 If you want to validate something in the view, and return with a custom error message in the same form, you can use the "[Form.add_error][1](fieldname, errorstring)" method. And then, of course, return to the previous template.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python">class MyView(View): 
+```
+class MyView(View): 
     def get(self, request): 
         data = form.cleaned_data
         if len(res) &gt; 0:
             form.add_error( 'login', "Diese Personalnummer existiert bereits!")
-        return render(request, 'my_template.html', {'form': form})</pre>
+        return render(request, 'my_template.html', {'form': form})
+```
 
 ## Dynamic choice fields in forms
 
 You want a form which fills its choice field from the database? And if the database changes, if you reload the page, the form should change as well? Of course! Django got you covered.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python">class UserForm(forms.Form): 
+```
+class UserForm(forms.Form): 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs) 
         self.fields['site'] = forms.ModelChoiceField( label="Site", queryset=Site.objects.all().order_by('name'), ) 
@@ -40,7 +43,8 @@ You want a form which fills its choice field from the database? And if the datab
     site = None # this is set in __init__() :)
     department = forms.CharField(label="Department")
     office = forms.CharField(label="Office")
-    phone = forms.CharField(label="Phone")</pre>
+    phone = forms.CharField(label="Phone")
+```
 
 ... now, why the "for field in ('department' ...)" line you ask?
 

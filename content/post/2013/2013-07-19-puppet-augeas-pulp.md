@@ -16,24 +16,28 @@ Ach Augeas ist schon genial. Wenn nur nicht ... (jaja, immer was zu meckern). An
 
 Tut es auch: Die IniFile-Lens. Preisfrage: Wie testet man das? Beim Ausprobieren [stieß ich][1] auch auf die Information, dass die IniFile-Lens nicht für direkte Nutzung gedacht ist, sondern nur für die Nutzung in ... abgeleiteten Lenses. Wie z.B. der Puppet-Lens. Die angeblich gut passt. Dann testet man das auf der Konsole folgendermaßen:
 
-<pre>augtool&gt; set /augeas/load/IniFile/lens Puppet.lns
+```
+augtool&gt; set /augeas/load/IniFile/lens Puppet.lns
 augtool&gt; set /augeas/load/IniFile/incl /etc/pulp/admin/admin.conf
 augtool&gt; load
 augtool&gt; match /files/etc/pulp/admin/admin.conf/server/host
-/files/etc/pulp/admin/admin.conf/server/host = localhost.localdomain</pre>
+/files/etc/pulp/admin/admin.conf/server/host = localhost.localdomain
+```
 
 Schee. Total intuitiv, oder? 🙂
 
 Ich möchte also den Wert von "host" unter "[server]" ändern, wie man sieht. Die dafür notwendige Puppet-Regel sieht so aus:
 
-<pre>augeas { "admin.conf/${key}":
+```
+augeas { "admin.conf/${key}":
     incl    =&gt; '/etc/pulp/admin/admin.conf',
     lens    =&gt; 'Puppet.lns',
     onlyif  =&gt; "get /files/etc/pulp/admin/admin.conf/server/host != ${hostname}",
     changes =&gt; [
         "set /files/etc/pulp/admin/admin.conf/server/host ${hostname}",
     ],
-}</pre>
+}
+```
 
 So wird ein Schuh draus. Man beachte, dass in der onlyif-Abfrage vor und hinter "!=" ein Leerzeichen stehen muss.
 

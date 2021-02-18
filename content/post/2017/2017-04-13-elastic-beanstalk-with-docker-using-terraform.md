@@ -43,7 +43,8 @@ For the example here you **need** a couple of things & facts:
 
 The files in the repository have _way_ more parameters, but this is the basic set which _should_ get you running (I tried once, then added all that stuff). The <span class="lang:default decode:true crayon-inline">main.tf</span>  file below will create the application and an environment associated with it.
 
-<pre class="lang:default decode:true" title="main.tf"># file: main.tf
+```default
+# file: main.tf
 
 resource "aws_elastic_beanstalk_application" "test" {
   name        = "ebs-test"
@@ -84,7 +85,7 @@ resource "aws_elastic_beanstalk_environment" "test_env" {
   }
 
 }
-</pre>
+```
 
 If you run this, at least one host and one ELB should appear in the defined subnets. Still, this is an _empty_ environment, there's no app running in it. If if you ask yourself, "where's the version he talked about?" - well, it's not in there. We didn't create one yet. This is just the very basic platform you need to run a version of an app.
 
@@ -100,7 +101,8 @@ That obviously was <span class="lang:default decode:true crayon-inline ">app_con
 
 This is the <span class="lang:default decode:true crayon-inline ">Dockerrun.aws.json</span>  file which describes our single-container test application:
 
-<pre class="lang:default decode:true" title="Dockerrun.aws.json for version 'latest'">{
+```default
+{
   "AWSEBDockerrunVersion": "1",
   "Image": {
     "Name": "flypenguin/test:latest",
@@ -114,13 +116,14 @@ This is the <span class="lang:default decode:true crayon-inline ">Dockerrun.aws.
   "Volumes": [],
   "Logging": "/var/log/flypenguin-test"
 }
-</pre>
+```
 
 See "final notes" for the "ContainerPort" directive.
 
 I also guess you know how to upload a file to S3, so I'll skip that. If not, look in the script. The Terraform declaration to add the version to Elastic Beanstalk looks like this: (if you used my script, a file called <span class="lang:default decode:true crayon-inline">app_version_<VERSION>.tf</span>  was created for you automatically with pretty much this content):
 
-<pre class="lang:default decode:true" title="Terraform file to create version 'latest' in EBS"># define elastic beanstalk app version "latest"
+```default
+# define elastic beanstalk app version "latest"
 resource "aws_elastic_beanstalk_application_version" "latest" {
   name        = "latest"
   application = "${aws_elastic_beanstalk_application.test_app.name}"
@@ -128,15 +131,16 @@ resource "aws_elastic_beanstalk_application_version" "latest" {
   bucket      = "my-test-bucket-for-ebs"
   key         = "latest.zip"
 }
-</pre>
+```
 
 Finally, deploying this using the AWS cli:
 
-<pre class="lang:sh decode:true " title="CLI command to deploy test-app's 'latest' version in environment 'test-env'">$ aws elasticbeanstalk update-environment \
+```sh
+$ aws elasticbeanstalk update-environment \
   --application-name test-app \
   --version-label latest \
   --environment-name test-env 
-</pre>
+```
 
 All done correctly, this should be it, and you should be able to access your app now under your configured address.
 

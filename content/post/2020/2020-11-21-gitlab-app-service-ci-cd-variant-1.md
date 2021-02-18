@@ -70,7 +70,8 @@ There are again a few caveats:
 
 Well, just add the file and push the repo.
 
-<pre class="brush: yaml; title: ; quick-code: false; notranslate" title="">stages:
+```
+stages:
   - push_to_azure
 push_it:
   stage: push_to_azure
@@ -97,7 +98,7 @@ push_it:
     # https://is.gd/rZDwxy / https://is.gd/rZDwxy
     - git fetch --unshallow origin || true
     - git push --force azure_app_service HEAD:refs/heads/master
-</pre>
+```
 
 ## Finally - test.
 

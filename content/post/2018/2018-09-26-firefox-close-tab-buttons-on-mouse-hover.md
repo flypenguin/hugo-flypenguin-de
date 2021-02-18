@@ -19,7 +19,8 @@ Googling a little bit told me how to bring it back:
     ($[FF\_PROFILE\_FOLDER][2]/chrome/userChrome.css)
   * Enter the code below (taken [from here][3], which is basically the original of this article)
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css">.tabbrowser-tab:not([selected]):not([pinned]) .tab-close-button {
+```
+.tabbrowser-tab:not([selected]):not([pinned]) .tab-close-button {
     visibility: hidden !important;
     margin-left: -16px !important;
 }
@@ -27,7 +28,8 @@ Googling a little bit told me how to bring it back:
     visibility: visible !important; 
     margin-left: 0px    !important; 
     display: -moz-box   !important;
-}</pre>
+}
+```
 
  [1]: http://kb.mozillazine.org/index.php?title=UserChrome.css
  [2]: http://kb.mozillazine.org/Profile_folder#Folders

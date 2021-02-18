@@ -16,13 +16,15 @@ The error is: Dependency cycle.
 
 The code is:
 
-<pre>class my::own::docker {
+```
+class my::own::docker {
     include ::docker
     file { '/var/lib/docker':
         ensure =&gt; directory,
         before =&gt; Class['docker'],
     }
-}</pre>
+}
+```
 
 Why? 🙂
 

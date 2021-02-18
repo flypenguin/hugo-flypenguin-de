@@ -18,7 +18,8 @@ I have a nextcloud setup like [described here][1] (docker-compose, let's encrypt
 
 This fixed it:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="php" data-enlighter-title="config.php">&lt;?php
+```
+&lt;?php
 $CONFIG = array (
   # manually added because it's not picked up from
   # the env vars once set ... it seems ...
@@ -35,7 +36,8 @@ $CONFIG = array (
   #
   # AAAND NOW back to the original config file ...
   # ...
-)</pre>
+)
+```
 
 Some notes:
 

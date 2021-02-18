@@ -15,7 +15,8 @@ Under macOS I use TextExpander, under Windows there's the fantastic [AutoHotkey.
 
 This is my default configuration:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">; ---------- "auto reload" ----------
+```
+; ---------- "auto reload" ----------
 
 FileGetTime ScriptStartModTime, %A_ScriptFullPath%
 SetTimer CheckReload, 1000, 0x7FFFFFFF ; ms & priority
@@ -50,7 +51,8 @@ CheckReload() {
 
 :*://ts::
   Send, %A_YYYY%%A_MM%%A_DD%_%A_Hour%%A_Min%%A_Sec%
-  Return</pre>
+  Return
+```
 
 &nbsp;
 

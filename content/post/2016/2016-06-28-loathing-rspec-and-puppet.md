@@ -20,12 +20,15 @@ So now that I don't have to google the same shit over and over again, here's wha
 
 ### $MODULE/Rakefile
 
-<pre>require 'rubygems'
-require 'puppetlabs_spec_helper/rake_tasks'</pre>
+```
+require 'rubygems'
+require 'puppetlabs_spec_helper/rake_tasks'
+```
 
 ### $MODULE/.fixtures.yml
 
-<pre>fixtures:
+```
+fixtures:
   repositories:
     concat: git://github.com/puppetlabs/puppetlabs-concat.git
     # alternate method, for specifying refs
@@ -34,16 +37,20 @@ require 'puppetlabs_spec_helper/rake_tasks'</pre>
       ref:  1.0.0
   symlinks:
     # do _not_ forget this
-    $MODULE: "#{source_dir}"</pre>
+    $MODULE: "#{source_dir}"
+```
 
 ### $MODULE/spec/spec_helper.rb
 
-<pre>require 'rubygems'
-require 'puppetlabs_spec_helper/module_spec_helper'</pre>
+```
+require 'rubygems'
+require 'puppetlabs_spec_helper/module_spec_helper'
+```
 
 ### $MODULE/spec/classes/$MODULE_spec.rb
 
-<pre># see also http://rspec-puppet.com/
+```
+# see also http://rspec-puppet.com/
 require 'spec_helper'
 
 describe '$MODULE' do
@@ -57,7 +64,8 @@ describe '$MODULE' do
       is_expected.to contain_file('/this/syntax/is/even/more/retarded')
     end
   end
-end</pre>
+end
+```
 
 ### Final note
 

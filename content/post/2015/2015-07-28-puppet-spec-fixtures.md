@@ -13,7 +13,8 @@ tags:
 ---
 That's how you specify branches in puppetlabs' spec_helper fixtures.yml:
 
-<pre>fixtures:
+```
+fixtures:
   forge_modules:
     stdlib:
       repo: "puppetlabs/stdlib"
@@ -25,4 +26,4 @@ That's how you specify branches in puppetlabs' spec_helper fixtures.yml:
       repo: "http://myurl/puppet-mapr.git"
       # this is a branch. stolen from: don't remember.
       ref: 'remotes/origin/ab/devel'
-</pre>
+```

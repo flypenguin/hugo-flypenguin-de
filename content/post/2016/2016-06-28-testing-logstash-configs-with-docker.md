@@ -17,16 +17,19 @@ Now this is really not rocket science, but since I might do this more often, I d
 
 ### Prepare your directories
 
-<pre class="lang:sh decode:true ">./tmp                   # THIS IS YOUR WORKING DIRECTORY
+```sh
+./tmp                   # THIS IS YOUR WORKING DIRECTORY
   |- patterns/          # optional
   |   |- patternfile1   # optional
   |   |- patternfile2   # optional
   |- logs.log
-  |- logstash.conf</pre>
+  |- logstash.conf
+```
 
 ### Prepare your logstash config
 
-<pre class="lang:sh decode:true "># logstash.conf
+```sh
+# logstash.conf
 input {
   file {
     path =&gt; '/stash/logs.log'
@@ -43,11 +46,14 @@ filter {
 
 output {
   stdout { codec =&gt; rubydebug }
-}</pre>
+}
+```
 
 ### Run logstash
 
-<pre class="lang:sh decode:true ">docker run --rm -ti -v $(pwd):/stash logstash logstash -f /stash/logstash.conf</pre>
+```sh
+docker run --rm -ti -v $(pwd):/stash logstash logstash -f /stash/logstash.conf
+```
 
 ### Done.
 

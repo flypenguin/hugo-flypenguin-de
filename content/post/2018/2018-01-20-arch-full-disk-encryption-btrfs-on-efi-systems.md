@@ -53,15 +53,17 @@ Cause we want "properly" encrypted swap (you can also encrypt swap using a <span
 
 I use the name "secure" for the VG, and I use btrfs cause I am so incredibly elite, and so we don't need to set a specific size for the <span class="lang:default decode:true crayon-inline">/</span> and <span class="lang:default decode:true crayon-inline">/home</span> "partitions" and can just use btrfs subvolumes, while _still_ being able to wipe the system without the home directories. That's pretty neat if you need it (I never did, but now I can ;). So that's the final setup:
 
-<pre class="lang:default decode:true" title="LVM layout of encrypted patition">/dev/mapper/secure-swap    40 GB, swap
+```default
+/dev/mapper/secure-swap    40 GB, swap
 /dev/mapper/secure-system  rest, btrfs with 2 subvols: root & home
-</pre>
+```
 
 ## Create filesystems & mount partitions
 
 Of course, Arch has already a [wiki page section][7] for that. I did it 3 times in a different way until I found it and had to do it again. So here is my summary.
 
-<pre class="lang:default decode:true" title="prepare filesystems for installation"># CREATE BTRFS & SUBVOLUMES
+```default
+# CREATE BTRFS & SUBVOLUMES
 $ mkfs.btrfs /dev/mapper/secure-system
 $ mount /dev/mapper/secure-system /mnt
 $ btrfs subvolume create /mnt/@
@@ -74,7 +76,7 @@ $ mount -o subvol=@ /dev/mapper/crypted-system /mnt
 $ mkdir -p /mnt/home /mnt/boot
 $ mount -o subvol=@home /dev/mapper/crypted-system /mnt/home
 $ mount /dev/sda1 /mnt/boot
-</pre>
+```
 
 **NOTE:** <span class="lang:default decode:true crayon-inline ">/boot</span> is _not_ on an encrypted partition 😉 , and the leading "<span class="lang:default decode:true crayon-inline">@</span>" is a convention for subvolumes which should be mounted somewhere. I also don't use <span class="lang:default decode:true crayon-inline ">compress=...</span>  parameters, cause I don't need / want transparent compression.
 
@@ -92,32 +94,42 @@ We are using systemd-boot. Or <span class="lang:default decode:true crayon-inlin
 
 Now create those files (all inside <span class="lang:default decode:true crayon-inline ">/mnt</span> and relative to it, but of course you should be in a chroot right now :):
 
-<pre class="lang:default decode:true" title="/boot/loader/entries/arch.conf">title Arch Linux
+```default
+title Arch Linux
 linux /vmlinuz-linux
 initrd /intel-ucode.img       # ONLY FOR INTEL CPUs!!
 initrd /initramfs-linux.img
-options luks.uuid=FS_UUID root=/dev/mapper/secure-system rootflags=subvol=@ rd.luks.options=discard</pre>
+options luks.uuid=FS_UUID root=/dev/mapper/secure-system rootflags=subvol=@ rd.luks.options=discard
+```
 
 You can get FS_UUID in the options line above by using the <span class="lang:default decode:true crayon-inline ">blkid</span> command. If you don't want to copy the UUID by hand, you can start console mouse support with copy-on-mark and paste-on-middleclick with <span class="lang:default decode:true crayon-inline">gpm -m /dev/input/mice -t imps2</span>. **Note** that the FS_UUID is the UUID of the _encrypted luks partition_, and **not** the filesystem within!
 
 The list of [normal][12] and [dm-crypt related][13] kernel parameters ... well, is also in the Arch wiki.
 
-<pre class="lang:default decode:true " title="/boot/loader/loader.conf">default arch    # the file above without .conf extension, can have wildcards!!
+```default
+default arch    # the file above without .conf extension, can have wildcards!!
 timeout 2
-editor  0</pre>
+editor  0
+```
 
-<pre class="lang:default decode:true" title="/etc/mkinitcpio.conf"># Just MODIFY that file, to be precisely this line:
-HOOKS=(base systemd autodetect modconf keyboard sd-vconsole block sd-encrypt sd-lvm2 filesystems fsck)</pre>
+```default
+# Just MODIFY that file, to be precisely this line:
+HOOKS=(base systemd autodetect modconf keyboard sd-vconsole block sd-encrypt sd-lvm2 filesystems fsck)
+```
 
 The key idea is to use the ["systemd" parameters instead][14] of the "normal" ones. The [full list of hooks][15] is of course also available, and the order is important.
 
 Now execute:
 
-<pre class="lang:default decode:true" title="create new initrd">mkinitcpio -p linux</pre>
+```default
+mkinitcpio -p linux
+```
 
 ... and actually, that should be it.
 
-<pre class="lang:default decode:true " title="reboot :)">$ reboot</pre>
+```default
+$ reboot
+```
 
 ### Edits:
 

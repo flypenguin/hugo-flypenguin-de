@@ -17,8 +17,10 @@ Anyhow.
 
 If you want to administer **Teams** with PowerShell, you ... are in trouble. It's barely documented, and it sucks. Those are the steps to be done:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic">&gt; $sess = New-CsOnlineSession ... 
+```
+&gt; $sess = New-CsOnlineSession ... 
 &gt; Import-Module SkypeOnlineConnector ... 
-&gt; Import-PSSession $sess</pre>
+&gt; Import-PSSession $sess
+```
 
 ... and this should be it. Now all the PowerShell commands for Teams (in my case: Grant-CsTeamsUpgradePolicy) should be available.

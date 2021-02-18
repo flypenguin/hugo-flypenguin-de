@@ -52,13 +52,14 @@ This is how you get started. But before you can get started, **you need a domain
 
 While the droplet is being created, you can also create a project locally to test it later:
 
-<pre class="lang:sh decode:true" title="A local test project">$ mkdir dokku-test
+```sh
+$ mkdir dokku-test
 $ cd dokku-test
 $ git init
 $ echo "FROM tutum/hello-world" &gt; Dockerfile
 $ git add Dockerfile
 $ git commit -m "Initial commit"
-</pre>
+```
 
 In this little test project we only create a Dockerfile from an hello-world image which displays "Hello world" in a browser so we can verify it worked.
 
@@ -69,21 +70,25 @@ Once the droplet is done, you can start setting up your personal little PaaS. Fi
 
 Then you **SSH into your droplet, and create your dokku project**. (This is something you have to do for every project). All you have to do for this is:
 
-<pre class="lang:default decode:true " title="Create dokku project">$ ssh root@DROPLET_IP
+```default
+$ ssh root@DROPLET_IP
 ~# dokku apps:create hello-world
 -----&gt; Creating hello-world... done
-~# _</pre>
+~# _
+```
 
 Done.
 
 Now you configure a git remote URL for your project, and push it:
 
-<pre class="lang:default decode:true" title="Add dokku remote URL to git">$ git remote add dokku dokku@my-paas.for-myself.com:hello-world
-</pre>
+```default
+$ git remote add dokku dokku@my-paas.for-myself.com:hello-world
+```
 
 Again - done. If you push your project now (assuming DNS is already set), everything should happen automagically:
 
-<pre class="lang:default decode:true" title="Git push deployment">$ git push --set-upstream dokku master
+```default
+$ git push --set-upstream dokku master
 X11 forwarding request failed
 Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
@@ -134,7 +139,8 @@ Successfully tagged dokku/hello-world:latest
 
 To my-paas.for-myself.com:hello-world
  * [new branch]      master -&gt; master
-Branch 'master' set up to track remote branch 'master' from 'dokku'.</pre>
+Branch 'master' set up to track remote branch 'master' from 'dokku'.
+```
 
 And if you open your URL now (which is <span class="lang:default decode:true crayon-inline">hello-world.my-paas.for-myself.com</span>) you should see this image:
 

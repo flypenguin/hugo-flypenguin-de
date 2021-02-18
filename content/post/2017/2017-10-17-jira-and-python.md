@@ -17,7 +17,8 @@ Naturally I don't do this by hand. But using the JIRA API is kind of ... hard, t
 
 Although when you did it, it's quite simple. Here's an example of how to create a ticket with due date and estimate set from a CSV file:
 
-<pre class="lang:python decode:true  " title="create a JIRA issue using Python and the JIRA module">from pprint import pprint, pformat
+```python
+from pprint import pprint, pformat
 from getpass import getpass
 
 import jira
@@ -47,7 +48,8 @@ def do_shit():
  
  
 if __name__ == "__main__":
-    do_shit()</pre>
+    do_shit()
+```
 
 So simple.
 

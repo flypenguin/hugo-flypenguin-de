@@ -14,7 +14,8 @@ Once you've installed Arch Linux, a couple of things are ... nice.
 
 ### Packages
 
-<pre class="lang:default decode:true " title="Package list"># standard
+```default
+# standard
 ack
 cups
 dnsmasq
@@ -29,7 +30,8 @@ zsh
 # yaourt
 firefox-beta-bin
 ttf-ms-win10
-visual-studio-code-bin</pre>
+visual-studio-code-bin
+```
 
 &nbsp;
 
@@ -37,18 +39,22 @@ visual-studio-code-bin</pre>
 
 For network manager, [I prefer dnsmasq as the tool of choice][1], especially when using VPN connections:
 
-<pre class="lang:default decode:true" title="/etc/NetworkManager/NetworkManager.conf">[Main]
-dns=dnsmasq</pre>
+```default
+[Main]
+dns=dnsmasq
+```
 
 ### Enable services
 
-<pre class="lang:default decode:true"># enable
+```default
+# enable
 systemctl enable NetworkManager
 systemctl enable org.cups.cupsd
 
 # start
 systemctl start NetworkManager
-systemctl start org.cups.cupsd</pre>
+systemctl start org.cups.cupsd
+```
 
 ### To-be-updated
 

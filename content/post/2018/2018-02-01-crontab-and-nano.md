@@ -15,7 +15,9 @@ Ever used <span class="lang:default decode:true  crayon-inline">update-alternati
 
 Well, I had this. I [found the answer][1]:
 
-<pre class="lang:default decode:true " title="select ... your editor ;)">select-editor</pre>
+```default
+select-editor
+```
 
 &nbsp;
 

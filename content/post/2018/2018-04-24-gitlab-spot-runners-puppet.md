@@ -61,7 +61,8 @@ For this we're still using Puppet (our K8S migration is still ongoing), and our 
 
 ### Some code
 
-<pre class="lang:yaml decode:true" title="runner_instance.yaml">#
+```yaml
+#
 # CONFIG VALUES
 #
 
@@ -206,7 +207,7 @@ create::docker_execs:
       %{hiera('machine::option::other')}'
     unless:     test -f /etc/gitlab-runner/config.toml
     require:    Service[docker-gitlab-spot-runner]
-</pre>
+```
 
 Does this look ugly? _You bet._
 
@@ -226,10 +227,11 @@ Does it work?
 
 If you wander what all those <span class="lang:default decode:true crayon-inline ">create::THING</span>  entries are - it's this:
 
-<pre class="lang:default decode:true" title="create::things">$files = hiera_hash('create::files', {})
+```default
+$files = hiera_hash('create::files', {})
 if ! empty($files) {
   create_resources('file', $files)
 }
-</pre>
+```
 
 We have an awful lot of those, cause then we can do a _lot_ of stuff in the config YAMLs and don't need to go in puppet DSL code.

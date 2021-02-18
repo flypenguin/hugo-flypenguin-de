@@ -25,9 +25,11 @@ And don't forget all the crap which is in the Windows menu tiles - XBox & co, I 
 
 Step 2: Change mouse wheel direction (sorry, Mac spoiled me). I can configure anything and everything in Windows - not that. Google helps, and I have to - of course - [navigate the registry][1] to find keys that look like this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">HKLM\SYSTEM\CurrentControlSet\Enum\HID\...
+```
+HKLM\SYSTEM\CurrentControlSet\Enum\HID\...
 ... VID_046D&PID_C53D&MI_01&COL01\9&12BDBF6B&0&0000\...
-... DeviceParameters\FlipFlopWheel</pre>
+... DeviceParameters\FlipFlopWheel
+```
 
 (Set this to 1, and get the "VID_0..." whatever string from the "Advanced Settings" of the mouse properties dialogue. Brainfuck.
 
@@ -35,8 +37,10 @@ Step 2: Change mouse wheel direction (sorry, Mac spoiled me). I can configure an
 
 Oh yeah, disabling Cortana is almost easy (set this to 0):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="null">HKLM\SOFTWARE\Policies\Microsoft\Windows\...
-... Windows Search\AllowCortana</pre>
+```
+HKLM\SOFTWARE\Policies\Microsoft\Windows\...
+... Windows Search\AllowCortana
+```
 
 #### Step 4: Remove contacts icon from taskbar
 

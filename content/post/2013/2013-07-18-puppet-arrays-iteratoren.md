@@ -21,7 +21,8 @@ Das hinzufügen, und dann ... ja, was dann? In Ruby kein Thema, aber jetzt möch
 
 Und das geht so:
 
-<pre><span style="font-family:sans-serif;font-size:small;"># next line broken up for readability
+```
+<span style="font-family:sans-serif;font-size:small;"># next line broken up for readability
 $devices_tmp    = inline_template( '
     &lt;%= devs=scope.lookupvar("::blockdevices")
         .split(",")
@@ -34,7 +35,8 @@ $devices_wanted = split($devices_tmp, ",")
 
 # but it works.
 # isn't life shit?
-notify { $devices_wanted : }</span></pre>
+notify { $devices_wanted : }</span>
+```
 
 Schön ist anders. Falls jemand eine bessere Idee hat - immer her damit ...
 

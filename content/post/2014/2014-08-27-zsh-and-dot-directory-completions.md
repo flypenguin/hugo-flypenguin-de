@@ -16,7 +16,9 @@ I blog so I don't forget. At least that's what I'm telling me right now 🙂 .
 
 So. To make zsh complete - for example - "cd .." (it should append a "/" on TAB, right?) set the following in the .zshrc:
 
-<pre>setopt autocd<br />zstyle ':completion:*' special-dirs true    # please complete "cd .._/_" ...</pre>
+```
+setopt autocd<br />zstyle ':completion:*' special-dirs true    # please complete "cd .._/_" ...
+```
 
 Great. Of course from [Stackoverflow][1].
 

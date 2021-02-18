@@ -12,10 +12,12 @@ tags:
 ---
 Not sure how I could have lived without this until now (had it before in Sublime, never bothered porting, stooooopid as I realize now 😉 ):
 
-<pre>'.source.puppet':
+```
+'.source.puppet':
   'Puppet: fail inline template':
     'prefix': 'fit'
     'body': """
       $fail_me = inline_template('&lt;%= require "yaml"; YAML.dump(@$1) %&gt;')
       fail("\\\\n\\\\nVariable \\\\$$1:\\\\n\${fail_me}\\\\n\\\\n")
-    """</pre>
+    """
+```

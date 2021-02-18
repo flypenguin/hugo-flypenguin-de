@@ -14,7 +14,9 @@ Unfortunately [shutter][1] does no longer work (or not yet, maybe, hopefully ðŸ˜
 
 On a freshly installed system you will find the "Edit" button grayed out though after you installed Shutter. Reason being there's a lib missing which is not installed by default. This is how you install it:
 
-<pre class="lang:default decode:true " title="re-enable shutter image editing">$ yaourt -S perl-goo-canvas</pre>
+```default
+$ yaourt -S perl-goo-canvas
+```
 
 And the editing continues.
 

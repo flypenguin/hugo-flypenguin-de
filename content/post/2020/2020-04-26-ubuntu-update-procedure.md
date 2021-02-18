@@ -15,7 +15,8 @@ tags:
 ---
 Brain dump.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell"># from here: https://askubuntu.com/a/862799/870970
+```
+# from here: https://askubuntu.com/a/862799/870970
 apt-get update && apt-get --with-new-pkgs upgrade 
 
 # restart
@@ -35,6 +36,7 @@ apt autoremove
 do-release-upgrade 
 
 
-# done.</pre>
+# done.
+```
 
 &nbsp;
