@@ -15,9 +15,9 @@ tags:
 ---
 I created a K8S cluster on AWS with kops.
 
-I ran <span class="lang:default decode:true crayon-inline ">helm init</span> to install tiller in the cluster.
+I ran `helm init` to install tiller in the cluster.
 
-I ran <span class="lang:default decode:true crayon-inline ">helm list</span>  to see if it worked.
+I ran `helm list`  to see if it worked.
 
 I got this:
 
@@ -38,8 +38,8 @@ That sucked. And google proved ... reluctant. What I could figure out is:
 
 Just do exactly as it [says in the helm docs][1] 🙂 :
 
-  * apply the RBAC yaml file which creates the <span class="lang:default decode:true crayon-inline">kube-system/tiller</span> service account, and binds this to the <span class="lang:default decode:true crayon-inline ">cluster-admin</span>  role.
-  * install helm with: <span class="lang:default decode:true crayon-inline ">helm init -service-account tiller</span>
+  * apply the RBAC yaml file which creates the `kube-system/tiller` service account, and binds this to the `cluster-admin`  role.
+  * install helm with: `helm init -service-account tiller`
 
 Is that secure? Not so much. With helm you can still do anything to the cluster at all. I might get to this in a later post.
 

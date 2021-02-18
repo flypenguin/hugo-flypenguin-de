@@ -15,7 +15,7 @@ tags:
 ---
 Why have one if you can have many? Well, beats me, but I thought I'd collect them here so I have my personal reference. **Disclaimer:** This is only for JavaScript based functions (most of the examples on the MS pages are C#).
 
-So, most of them have to do with the file <span class="lang:default decode:true crayon-inline ">function.json</span>  file:
+So, most of them have to do with the file `function.json`  file:
 
 ```
 {
@@ -41,11 +41,11 @@ More precisely, with the "out" type binding that is defined in the 2nd "bindings
 
 # Method 1 - context property
 
-The context object has one property per defined "out" binding. So if our property is named "thisIsAnOutputBinding", our result property is <span class="lang:default decode:true crayon-inline ">context.</span>thisIsAnOutputBinding , or as MicroSoft puts it:
+The context object has one property per defined "out" binding. So if our property is named "thisIsAnOutputBinding", our result property is `context.`thisIsAnOutputBinding , or as MicroSoft puts it:
 
-> Outputs (bindings of <span class="lang:default decode:true crayon-inline ">direction === "out"</span> ) can be written to by a function in a number of ways. In all cases, the <span class="lang:default decode:true crayon-inline">name</span> property of the binding as defined in _function.json_ corresponds to the name of the object member written to in your function.
+> Outputs (bindings of `direction === "out"` ) can be written to by a function in a number of ways. In all cases, the `name` property of the binding as defined in _function.json_ corresponds to the name of the object member written to in your function.
 
-Simply put, you just assign the value to a <span class="lang:default decode:true crayon-inline ">context</span>  member and you're done:
+Simply put, you just assign the value to a `context`  member and you're done:
 
 ```
 module.exports = function(context, req) {
@@ -76,7 +76,7 @@ module.exports = async function(context) {
 
 # Method 3 - using context.bindings
 
-This is basically a variant of method 1. Why does it exist? No one knows. Apparently the context object has a <span class="lang:default decode:true crayon-inline ">.bindings</span>  property, which in turn again has properties which name-match the defined out bindings. So this is another possibility, and I think the <span class="lang:default decode:true crayon-inline ">return</span>  is unnecessary:
+This is basically a variant of method 1. Why does it exist? No one knows. Apparently the context object has a `.bindings`  property, which in turn again has properties which name-match the defined out bindings. So this is another possibility, and I think the `return`  is unnecessary:
 
 ```
 module.exports = async function(context) {
@@ -93,7 +93,7 @@ module.exports = async function(context) {
 
 # Method 4 - using context.done()
 
-If you're using a sync method, you can't return an object, but you can call <span class="lang:js decode:true crayon-inline ">context.done(err, obj)</span> .
+If you're using a sync method, you can't return an object, but you can call `context.done(err, obj)` .
 
 ```
 module.exports = async function(context) {

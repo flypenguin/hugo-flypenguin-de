@@ -97,7 +97,7 @@ $ dokku postgres:link hello-world hello-world
 
 And done.
 
-What happened? You have now the environment variable <span class="lang:default decode:true crayon-inline">$DATABASE_URL</span> set in the hello-world app, that's why the restart was necessary (which you can postpone, if you want, but you probably need it now, right?).
+What happened? You have now the environment variable `$DATABASE_URL` set in the hello-world app, that's why the restart was necessary (which you can postpone, if you want, but you probably need it now, right?).
 
 Let's check:
 

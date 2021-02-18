@@ -39,13 +39,13 @@ That is in my eyes a huge design flaw, which undoubtedly has its reasons, but it
 
 You can configure pretty much everything in the config file. But once the runner registers, the registration process for some reason _appends_ a completely new config to any existing config file, so that ... the state is weird. It works, but it looks fucked, and feels fucked.
 
-You can also set all configuration file entries using the <span class="lang:default decode:true crayon-inline ">gitlab-runner register</span>  command. Well, not all: The global parameters (like, for example, <span class="lang:default decode:true crayon-inline ">log_level</span>  or <span class="lang:default decode:true crayon-inline ">concurrent</span> ) cannot be set. _Those_ have to be in a pre-existing config file, so you need _both_ - the file _and_ the registration command, which will look super ugly in a very short time.
+You can also set all configuration file entries using the `gitlab-runner register`  command. Well, not all: The global parameters (like, for example, `log_level`  or `concurrent` ) cannot be set. _Those_ have to be in a pre-existing config file, so you need _both_ - the file _and_ the registration command, which will look super ugly in a very short time.
 
 Especially if you still use Puppet to manage the runners, cause then you just can't just restart the runner once the config file changes. Because it _will always_ change, because of above reasons.
 
 #### Third: The AWS permission documentation
 
-Another thing is that the list of AWS permissions the runner needs in order to create spot instances is nowhere to be found. Hint: <span class="lang:default decode:true crayon-inline ">EC2FullAccess</span>  and <span class="lang:default decode:true crayon-inline ">S3FullAccess</span> is _not_ enough. We are using admin permissions right now, until we figured it out. Not nice.
+Another thing is that the list of AWS permissions the runner needs in order to create spot instances is nowhere to be found. Hint: `EC2FullAccess`  and `S3FullAccess` is _not_ enough. We are using admin permissions right now, until we figured it out. Not nice.
 
 ### Our solution
 
@@ -57,7 +57,7 @@ For this we're still using Puppet (our K8S migration is still ongoing), and our 
   * Start the GitLab runner.
   * Perform a "docker exec" which registers the runner in GitLab. 
       * The "unless" contains a check that skips execution if the final config file is present.
-      * The <span class="lang:default decode:true crayon-inline ">register</span>  command sets all configuration values except the global ones. Like said above, the command appends all non-global config settings to any existing config file.
+      * The `register`  command sets all configuration values except the global ones. Like said above, the command appends all non-global config settings to any existing config file.
 
 ### Some code
 
@@ -225,7 +225,7 @@ Does it work?
 
 ### Remarks
 
-If you wander what all those <span class="lang:default decode:true crayon-inline ">create::THING</span>  entries are - it's this:
+If you wander what all those `create::THING`  entries are - it's this:
 
 ```default
 $files = hiera_hash('create::files', {})

@@ -23,7 +23,7 @@ Die notify Funktion von Puppet hat eine seltsame Eigenschaft, die ich persönlic
 > </p>
 
 <p style="text-align:left;">
-  Das funktioniert bestens, und bedeutet, dass zuerst die file-Direktive abgearbeitet wird, und <em>dann</em> der Service. Darauf aufbauend kann ich mir sehr gut folgende Erweiterung vorstellen:
+  Das funktioniert bestens, und bedeutet, dass zuerst die file-Direktive abgearbeitet wird, und _dann_ der Service. Darauf aufbauend kann ich mir sehr gut folgende Erweiterung vorstellen:
 </p>
 
 > <p style="text-align:left;">

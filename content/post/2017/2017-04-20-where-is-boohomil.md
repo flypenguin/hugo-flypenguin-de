@@ -14,7 +14,7 @@ tags:
 ---
 For some reason, the maintainer behind the "*-infinality" packages in Arch Linux "has gone missing" for a while.
 
-Why is that important to me? Because infinality is a patch set to a bunch of font and rendering packages, which make fonts under Linux look <span style="text-decoration: underline;"><em><strong>SO</strong></em></span> much better than the default setup. (Yes, there are still a couple of things that Linux just _absolutely cannot compete in_ with Mac and / or Win, and font rendering is one of them. Ubuntu does a reasonable job of this, every other distro just sucks.
+Why is that important to me? Because infinality is a patch set to a bunch of font and rendering packages, which make fonts under Linux look _**SO**_ much better than the default setup. (Yes, there are still a couple of things that Linux just _absolutely cannot compete in_ with Mac and / or Win, and font rendering is one of them. Ubuntu does a reasonable job of this, every other distro just sucks.
 
 Except when you were using infinality. And now it's defunct.
 

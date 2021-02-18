@@ -41,7 +41,7 @@ For the example here you **need** a couple of things & facts:
 
 #### Get started
 
-The files in the repository have _way_ more parameters, but this is the basic set which _should_ get you running (I tried once, then added all that stuff). The <span class="lang:default decode:true crayon-inline">main.tf</span>  file below will create the application and an environment associated with it.
+The files in the repository have _way_ more parameters, but this is the basic set which _should_ get you running (I tried once, then added all that stuff). The `main.tf`  file below will create the application and an environment associated with it.
 
 ```default
 # file: main.tf
@@ -89,17 +89,17 @@ resource "aws_elastic_beanstalk_environment" "test_env" {
 
 If you run this, at least one host and one ELB should appear in the defined subnets. Still, this is an _empty_ environment, there's no app running in it. If if you ask yourself, "where's the version he talked about?" - well, it's not in there. We didn't create one yet. This is just the very basic platform you need to run a version of an app.
 
-In my source repo you can now just use the script <span class="lang:default decode:true crayon-inline ">app_config_create_and_upload.sh</span> , followed by <span class="lang:default decode:true crayon-inline ">deploy.sh</span> . You should be able to figure out how to use them, and they should work out of the box. But we're here to explain, so this is what happens behind the scenes if you do this:
+In my source repo you can now just use the script `app_config_create_and_upload.sh` , followed by `deploy.sh` . You should be able to figure out how to use them, and they should work out of the box. But we're here to explain, so this is what happens behind the scenes if you do this:
 
-  1. create a file "<span class="lang:default decode:true crayon-inline ">Dockerrun.aws.json</span> " with the information about the service (Docker image, etc.) to deploy
+  1. create a file "`Dockerrun.aws.json` " with the information about the service (Docker image, etc.) to deploy
   2. upload that file into an S3 bucket, packed into a ZIP file (see "final notes" below)
   3. tell Elastic Beanstalk to create a new app version using the info from that file (on S3)
 
-That obviously was <span class="lang:default decode:true crayon-inline ">app_config_create_and_upload.sh</span> . The next script, <span class="lang:default decode:true crayon-inline ">deploy.sh</span> , does this:
+That obviously was `app_config_create_and_upload.sh` . The next script, `deploy.sh` , does this:
 
   1. tell EBS to actually deploy that configuration using the AWS cli.
 
-This is the <span class="lang:default decode:true crayon-inline ">Dockerrun.aws.json</span>  file which describes our single-container test application:
+This is the `Dockerrun.aws.json`  file which describes our single-container test application:
 
 ```default
 {
@@ -120,7 +120,7 @@ This is the <span class="lang:default decode:true crayon-inline ">Dockerrun.aws.
 
 See "final notes" for the "ContainerPort" directive.
 
-I also guess you know how to upload a file to S3, so I'll skip that. If not, look in the script. The Terraform declaration to add the version to Elastic Beanstalk looks like this: (if you used my script, a file called <span class="lang:default decode:true crayon-inline">app_version_<VERSION>.tf</span>  was created for you automatically with pretty much this content):
+I also guess you know how to upload a file to S3, so I'll skip that. If not, look in the script. The Terraform declaration to add the version to Elastic Beanstalk looks like this: (if you used my script, a file called `app_version_<VERSION>.tf`  was created for you automatically with pretty much this content):
 
 ```default
 # define elastic beanstalk app version "latest"
@@ -154,11 +154,11 @@ Finally, after reading a lot of postings and way to much AWS docs, I am surprise
 
 #### Final notes & troubleshooting
 
-  1. I have no idea what the <span class="lang:default decode:true crayon-inline ">aws_elastic_beanstalk_configuration_template</span>  Terraform resource is for. I would like to understand it, but the documentation is rather ... sparse.
+  1. I have no idea what the `aws_elastic_beanstalk_configuration_template`  Terraform resource is for. I would like to understand it, but the documentation is rather ... sparse.
   2. The solution stack name has semantic meaning. You must set something that AWS understands. This can be found out by using the following command:  
-    <span class="lang:default decode:true crayon-inline">$ aws elasticbeanstalk list-available-solution-stacks</span> **  
+    `$ aws elasticbeanstalk list-available-solution-stacks` **  
 ** ... or on the AWS documentation. Whatever is to your liking.
-  3. If you don't specify a security group (<span class="lang:default decode:true crayon-inline ">aws:autoscaling:launchconfiguration</span>  - "<span class="lang:default decode:true crayon-inline ">SecurityGroups</span> ") one will be created for you automatically. That might not be convenient because this means that on "terraform destroy" this group might not be destroyed automatically. (which is just a guess, I didn't test this)
+  3. If you don't specify a security group (`aws:autoscaling:launchconfiguration`  - "`SecurityGroups` ") one will be created for you automatically. That might not be convenient because this means that on "terraform destroy" this group might not be destroyed automatically. (which is just a guess, I didn't test this)
   4. The same goes for the auto scaling group scaling rules.
   5. When trying the **minimal example**, be extra careful **when you can't access the service after everything is there**. The standard settings seem to be: Same subnet for ELB and hosts (obviously), and public ELB (with public IPv4 address). Now, placing a public-facing ELB into an internal-only subnet does not work, right? 🙂
   6. **The ZIP file:** According to the docs you can only upload the JSON file (or the Dockerfile file if you build the container in the process) to S3. But the docs are not extremely clear, and Terraform did not mention this. So I am using ZIPs which works just fine.

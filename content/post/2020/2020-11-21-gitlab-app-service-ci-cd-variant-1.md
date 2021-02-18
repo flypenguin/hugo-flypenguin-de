@@ -64,7 +64,7 @@ There are again a few caveats:
 
   * Basically the whole thing is based on the app name. Your user name should be your app name prefixed by a "$" sign, which is **highly annoying**.
   * If you ever want to use a "$" sign in any GitLab runner environment variable, you have to escape it with another "$".  
-    Example: "my$variable" should be "my<span style="text-decoration: underline;"><strong>$$</strong></span>variable" in the "value" field of GitLab.
+    Example: "my$variable" should be "my**$$**variable" in the "value" field of GitLab.
 
 ## Add .gitlab-ci.yml file to repo
 

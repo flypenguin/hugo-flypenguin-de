@@ -11,7 +11,7 @@ tags:
   - linux
 
 ---
-Ever used <span class="lang:default decode:true  crayon-inline">update-alternatives</span> to switch everything to vim and ... <span class="lang:default decode:true  crayon-inline">crontab -e</span> _still_ used nano?
+Ever used `update-alternatives` to switch everything to vim and ... `crontab -e` _still_ used nano?
 
 Well, I had this. I [found the answer][1]:
 

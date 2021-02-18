@@ -21,13 +21,13 @@ But containerizing it should be not hard, given a moderately complex software wi
 
 ```
 /my_code/
-<strong>   |--- docker/</strong>
-<strong>   |      |--- prepare.sh     # optional</strong>
-<strong>   |      |--- Dockerfile     # required ;)</strong>
+   |--- docker/               # !!!
+   |      |--- prepare.sh     # !!! optional
+   |      |--- Dockerfile     # !!! required ;)
    |--- main.c
    |--- SELECT_BUILD_CONTAINER
-   <strong>|--- build/                # created by the build</strong>
-<strong>          |--- ...</strong>
+   |--- build/                # !!! created by the build
+          |--- ...            # !!!
 ```
 
 Now it get's straightforward: The build scripts in TeamCity ...

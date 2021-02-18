@@ -31,7 +31,7 @@ One after another, we will do the following steps
 
 ## Prepare the hard disk
 
-Use <span class="lang:default decode:true crayon-inline">parted</span> to init the disk and ...
+Use `parted` to init the disk and ...
 
   1. [init the disk using a GPT partitioning scheme][1], then create
   2. [a GPT boot partition and put 100% of the remaining space in another partition][2] (the first two actions behind the link)
@@ -40,18 +40,18 @@ Use <span class="lang:default decode:true crayon-inline">parted</span> to init t
 
 Basically,
 
-  1. [use the <span class="lang:default decode:true crayon-inline">cryptsetup</span> command to encrypt the main (big) partition][3],
-  2. [and create a file system on the boot partition][4] (remember: it _must_ be FAT32 for EFI boot, and it _must_ be <span style="text-decoration: underline;">un</span>encrypted!)
+  1. [use the `cryptsetup` command to encrypt the main (big) partition][3],
+  2. [and create a file system on the boot partition][4] (remember: it _must_ be FAT32 for EFI boot, and it _must_ be _un_encrypted!)
 
 ## Add an LVM "inside" the encrypted partition
 
-Cause we want "properly" encrypted swap (you can also encrypt swap using a <span class="lang:default decode:true crayon-inline">/dev/random</span> key every time, but then you will not persist data between reboots and you can't do things like suspend-to-disk), we need at least two "partitions" "inside" the crypted volume. Sounds like [LVM on LUKS][5]? It does. We already used it 🙂 .
+Cause we want "properly" encrypted swap (you can also encrypt swap using a `/dev/random` key every time, but then you will not persist data between reboots and you can't do things like suspend-to-disk), we need at least two "partitions" "inside" the crypted volume. Sounds like [LVM on LUKS][5]? It does. We already used it 🙂 .
 
-  1. [Create LVM partitions inside the encrypted volume][6] (Don't forget to use <span class="lang:default decode:true crayon-inline">cryptsetup luksOpen</span> before, usually in step 1 in the last section 🙂
+  1. [Create LVM partitions inside the encrypted volume][6] (Don't forget to use `cryptsetup luksOpen` before, usually in step 1 in the last section 🙂
 
-**NOTE:** Do **<span style="text-decoration: underline;">not</span>** follow the above link down to "prepare the boot partition", cause they use ext2 and we need FAT32 for EFI boot partitions. Just don't.
+**NOTE:** Do **_not_** follow the above link down to "prepare the boot partition", cause they use ext2 and we need FAT32 for EFI boot partitions. Just don't.
 
-I use the name "secure" for the VG, and I use btrfs cause I am so incredibly elite, and so we don't need to set a specific size for the <span class="lang:default decode:true crayon-inline">/</span> and <span class="lang:default decode:true crayon-inline">/home</span> "partitions" and can just use btrfs subvolumes, while _still_ being able to wipe the system without the home directories. That's pretty neat if you need it (I never did, but now I can ;). So that's the final setup:
+I use the name "secure" for the VG, and I use btrfs cause I am so incredibly elite, and so we don't need to set a specific size for the `/` and `/home` "partitions" and can just use btrfs subvolumes, while _still_ being able to wipe the system without the home directories. That's pretty neat if you need it (I never did, but now I can ;). So that's the final setup:
 
 ```default
 /dev/mapper/secure-swap    40 GB, swap
@@ -78,7 +78,7 @@ $ mount -o subvol=@home /dev/mapper/crypted-system /mnt/home
 $ mount /dev/sda1 /mnt/boot
 ```
 
-**NOTE:** <span class="lang:default decode:true crayon-inline ">/boot</span> is _not_ on an encrypted partition 😉 , and the leading "<span class="lang:default decode:true crayon-inline">@</span>" is a convention for subvolumes which should be mounted somewhere. I also don't use <span class="lang:default decode:true crayon-inline ">compress=...</span>  parameters, cause I don't need / want transparent compression.
+**NOTE:** `/boot` is _not_ on an encrypted partition 😉 , and the leading "`@`" is a convention for subvolumes which should be mounted somewhere. I also don't use `compress=...`  parameters, cause I don't need / want transparent compression.
 
 ## Install arch
 
@@ -86,13 +86,13 @@ Then you follow up with the [usual installation procedure][8], but you **stop at
 
 ## Configure boot manager
 
-We are using systemd-boot. Or <span class="lang:default decode:true crayon-inline">bootctl</span>, as the binary is called. It should be already installed. The procedure is [also outlined here][9]. We also enable TRIM support, it seems to lessen security, but it raises SSD performance and life time.
+We are using systemd-boot. Or `bootctl`, as the binary is called. It should be already installed. The procedure is [also outlined here][9]. We also enable TRIM support, it seems to lessen security, but it raises SSD performance and life time.
 
   1. First, check if your system [EFI is all right][10].
-  2. **Optionally** [install the Intel microcode updater][11] package if you have an Intel CPU by doing <span class="lang:default decode:true crayon-inline">pacman -S intel-ucode</span>.
-  3. Then run ... <span class="lang:default decode:true crayon-inline">bootctl -path=/boot install</span> to install systemd-boot.
+  2. **Optionally** [install the Intel microcode updater][11] package if you have an Intel CPU by doing `pacman -S intel-ucode`.
+  3. Then run ... `bootctl -path=/boot install` to install systemd-boot.
 
-Now create those files (all inside <span class="lang:default decode:true crayon-inline ">/mnt</span> and relative to it, but of course you should be in a chroot right now :):
+Now create those files (all inside `/mnt` and relative to it, but of course you should be in a chroot right now :):
 
 ```default
 title Arch Linux
@@ -102,7 +102,7 @@ initrd /initramfs-linux.img
 options luks.uuid=FS_UUID root=/dev/mapper/secure-system rootflags=subvol=@ rd.luks.options=discard
 ```
 
-You can get FS_UUID in the options line above by using the <span class="lang:default decode:true crayon-inline ">blkid</span> command. If you don't want to copy the UUID by hand, you can start console mouse support with copy-on-mark and paste-on-middleclick with <span class="lang:default decode:true crayon-inline">gpm -m /dev/input/mice -t imps2</span>. **Note** that the FS_UUID is the UUID of the _encrypted luks partition_, and **not** the filesystem within!
+You can get FS_UUID in the options line above by using the `blkid` command. If you don't want to copy the UUID by hand, you can start console mouse support with copy-on-mark and paste-on-middleclick with `gpm -m /dev/input/mice -t imps2`. **Note** that the FS_UUID is the UUID of the _encrypted luks partition_, and **not** the filesystem within!
 
 The list of [normal][12] and [dm-crypt related][13] kernel parameters ... well, is also in the Arch wiki.
 

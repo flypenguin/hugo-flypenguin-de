@@ -63,10 +63,10 @@ $ git commit -m "Initial commit"
 
 In this little test project we only create a Dockerfile from an hello-world image which displays "Hello world" in a browser so we can verify it worked.
 
-Once the droplet is done, you can start setting up your personal little PaaS. First, you have to **configure your DNS**. We will set up a wildcard entry for our deployments, and a non-wildcard entry for git. Let's assume your domain is <span class="lang:default decode:true crayon-inline">for-myself.com</span>, then you would add ...
+Once the droplet is done, you can start setting up your personal little PaaS. First, you have to **configure your DNS**. We will set up a wildcard entry for our deployments, and a non-wildcard entry for git. Let's assume your domain is `for-myself.com`, then you would add ...
 
-  * <span class="lang:default decode:true crayon-inline">my-paas.for-myself.com</span> , type "A" (or "AAAA" if you are IPv6) to your droplet IP
-  * <span class="lang:default decode:true crayon-inline">*.my-paas.for-myself.com</span> just the same
+  * `my-paas.for-myself.com` , type "A" (or "AAAA" if you are IPv6) to your droplet IP
+  * `*.my-paas.for-myself.com` just the same
 
 Then you **SSH into your droplet, and create your dokku project**. (This is something you have to do for every project). All you have to do for this is:
 
@@ -142,7 +142,7 @@ To my-paas.for-myself.com:hello-world
 Branch 'master' set up to track remote branch 'master' from 'dokku'.
 ```
 
-And if you open your URL now (which is <span class="lang:default decode:true crayon-inline">hello-world.my-paas.for-myself.com</span>) you should see this image:
+And if you open your URL now (which is `hello-world.my-paas.for-myself.com`) you should see this image:
 
 <img loading="lazy" class="size-medium wp-image-1100 aligncenter" src="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png" alt="" width="266" height="300" srcset="https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-266x300.png 266w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-768x868.png 768w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8-906x1024.png 906w, https://flypenguin.de/wp-content/uploads/2018/08/screenshot-8.png 970w" sizes="(max-width: 266px) 100vw, 266px" /> 
 
