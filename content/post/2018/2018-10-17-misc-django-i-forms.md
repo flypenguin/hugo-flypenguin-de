@@ -21,7 +21,7 @@ If you want to validate something in the view, and return with a custom error me
 class MyView(View):
     def get(self, request):
         data = form.cleaned_data
-        if len(res) &gt; 0:
+        if len(res) > 0:
             form.add_error( 'login', "Diese Personalnummer existiert bereits!")
         return render(request, 'my_template.html', {'form': form})
 ```

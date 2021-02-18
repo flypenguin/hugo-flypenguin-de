@@ -38,8 +38,8 @@ $ dokku postgres:create hello-world
 dokku postgres:create hello-world
 Waiting for container to be ready
 Creating container database Securing connection to database
-=====&gt; Postgres container created: hello-world
-=====&gt; Container Information
+=====> Postgres container created: hello-world
+=====> Container Information
        Config dir: /var/lib/dokku/services/postgres/hello-world/config
        Data dir: /var/lib/dokku/services/postgres/hello-world/data
        Dsn: postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world
@@ -65,33 +65,33 @@ Then you link the container to the running app:
 
 ```
 $ dokku postgres:link hello-world hello-world
------&gt; Setting config vars
+-----> Setting config vars
        DATABASE_URL: postgres://postgres:bd6b0725d710bb5a662bb628eee787b1@dokku-postgres-hello-world:5432/hello_world
------&gt; Restarting app hello-world
------&gt; Releasing hello-world (dokku/hello-world:latest)...
------&gt; Deploying hello-world (dokku/hello-world:latest)...
------&gt; Attempting to run scripts.dokku.predeploy from app.json (if defined)
------&gt; No Procfile found in app image
------&gt; DOKKU_SCALE file found (/home/dokku/hello-world/DOKKU_SCALE)
-=====&gt; web=1
------&gt; Attempting pre-flight checks
+-----> Restarting app hello-world
+-----> Releasing hello-world (dokku/hello-world:latest)...
+-----> Deploying hello-world (dokku/hello-world:latest)...
+-----> Attempting to run scripts.dokku.predeploy from app.json (if defined)
+-----> No Procfile found in app image
+-----> DOKKU_SCALE file found (/home/dokku/hello-world/DOKKU_SCALE)
+=====> web=1
+-----> Attempting pre-flight checks
        For more efficient zero downtime deployments, create a file CHECKS.
        See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples
        CHECKS file not found in container: Running simple container check...
------&gt; Waiting for 10 seconds ...
------&gt; Default container check successful!
------&gt; Running post-deploy
------&gt; Configuring hello-world.my-paas.for-myself.com...(using built-in template)
------&gt; Creating http nginx.conf
------&gt; Running nginx-pre-reload Reloading nginx
------&gt; Setting config vars DOKKU_APP_RESTORE: 1
------&gt; Found previous container(s) (14c349cb496d) named hello-world.web.1
-=====&gt; Renaming container (14c349cb496d) hello-world.web.1 to hello-world.web.1.1535285386
-=====&gt; Renaming container (cc99cccacf2c) serene_bassi to hello-world.web.1
------&gt; Attempting to run scripts.dokku.postdeploy from app.json (if defined)
------&gt; Shutting down old containers in 60 seconds
-=====&gt; 14c349cb496d95cc4be1833f2e7f6ef2bef099a37c2a22cd4dcdb542f09bea0f
-=====&gt; Application deployed:
+-----> Waiting for 10 seconds ...
+-----> Default container check successful!
+-----> Running post-deploy
+-----> Configuring hello-world.my-paas.for-myself.com...(using built-in template)
+-----> Creating http nginx.conf
+-----> Running nginx-pre-reload Reloading nginx
+-----> Setting config vars DOKKU_APP_RESTORE: 1
+-----> Found previous container(s) (14c349cb496d) named hello-world.web.1
+=====> Renaming container (14c349cb496d) hello-world.web.1 to hello-world.web.1.1535285386
+=====> Renaming container (cc99cccacf2c) serene_bassi to hello-world.web.1
+-----> Attempting to run scripts.dokku.postdeploy from app.json (if defined)
+-----> Shutting down old containers in 60 seconds
+=====> 14c349cb496d95cc4be1833f2e7f6ef2bef099a37c2a22cd4dcdb542f09bea0f
+=====> Application deployed:
        http://hello-world.my-paas.for-myself.com
 ```
 

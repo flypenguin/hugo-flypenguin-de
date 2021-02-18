@@ -54,7 +54,7 @@ Now. What happens? Let's see:
 ```
 Error creating App Service "wzkytawt" (Resource Group "pkd-it-appservices0"):
    web.AppsClient#CreateOrUpdate: Failure sending request: StatusCode=0 --
-   Original Error: autorest/azure: Service returned an error. Status=&lt;nil&gt; &lt;nil&gt;
+   Original Error: autorest/azure: Service returned an error. Status=<nil> <nil>
 ```
 
 What? Okay, our app service fails without any indication. By setting "<code class="EnlighterJSRAW" data-enlighter-language="generic">TF_LOG=TRACE</code>" and reading through 100s of lines of code we get this:

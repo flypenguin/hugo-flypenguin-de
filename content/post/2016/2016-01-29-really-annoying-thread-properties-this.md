@@ -42,6 +42,6 @@ if __name__ == &quot;__main__&quot;:
 Result is:
 
 ```
-I'm (&lt;MyThread(Thread-1, started 140195858716416)&gt;) in directory /
-I'm (&lt;MyThread(Thread-2, started 140195850323712)&gt;) in directory /
+I'm (<MyThread(Thread-1, started 140195858716416)>) in directory /
+I'm (<MyThread(Thread-2, started 140195850323712)>) in directory /
 ```

@@ -103,7 +103,7 @@ machine::option::subnet_id:               'subnet-subbb'
 machine::option::tags:                    'stage,prod'
 machine::option::vpc_id:                  'vpc-veepeecee'
 
-machine::option::other:                   &gt;
+machine::option::other:                   >
   --machine-machine-options amazonec2-security-group=cognodev3_sg_docker_machine
   --machine-machine-options amazonec2-security-group=cognodev3-SG0-shubdu
   --machine-machine-options amazonec2-security-group=cognodev3-SG1-shalala
@@ -168,7 +168,7 @@ create::docker_execs:
     detach:     false
     container:  gitlab-spot-runner
     tty:        true
-    command: &gt;-
+    command: >-
       /bin/bash -c 'cp /etc/gitlab-runner/config.toml.puppet /etc/gitlab-runner/config.toml &&
       gitlab-runner register --non-interactive
       --registration-token %{hiera('registration_command::token')}

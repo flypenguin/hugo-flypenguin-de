@@ -17,7 +17,7 @@ And there is.
 
 ```
 $ openstack server list
-$ nova floating-ip-associate &lt;server-uuid&gt; &lt;floating-IP&gt;
+$ nova floating-ip-associate <server-uuid> <floating-IP>
 ```
 
 (_Note:_ The floating-ip is the actual IP, not the UUID _of_ the OpenStack floating IP)

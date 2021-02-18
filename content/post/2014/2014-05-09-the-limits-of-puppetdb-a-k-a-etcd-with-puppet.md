@@ -35,7 +35,7 @@ So far, so good. Unfortunately there are a few problems with it. My first approa
 }
 
 # on every other machine:
-Resolv_conf_entry &lt;&lt;| tag == $domain |&gt;&gt;
+Resolv_conf_entry <<| tag == $domain |>>
 ```
 
 Unfortunately this _will_ lead to a "duplicate declaration" on the client side - because _all_ of the clustered DNS servers will export this, and the `cluster_ip` is identical on the DNS server hosts.

@@ -24,7 +24,7 @@ This is how my script looks:
 
 ```
 #!/usr/bin/env bash
-echo "ALTER TABLE public.django_admin_log OWNER TO &lt;new_owner&gt;;" | psql -U &lt;current_owner&gt; &lt;database&gt;
+echo "ALTER TABLE public.django_admin_log OWNER TO <new_owner>;" | psql -U <current_owner> <database>
 # ...
 ```
 

@@ -42,121 +42,121 @@ What took me longest was to add the "file:" in the line <code class="EnlighterJS
 Code-wise, that is. It took me even longer to set this up:
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;de.company.business&lt;/groupId&gt;
-  &lt;artifactId&gt;camelocclient&lt;/artifactId&gt;
-  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-  &lt;name&gt;CamelOCClient&lt;/name&gt;
-  &lt;description&gt;The thing that transfers payment files to OC&lt;/description&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.company.business</groupId>
+  <artifactId>camelocclient</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>CamelOCClient</name>
+  <description>The thing that transfers payment files to OC</description>
 
-  &lt;properties&gt;
-    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-  &lt;/properties&gt;
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
-  &lt;repositories&gt;
-    &lt;repository&gt;
-      &lt;id&gt;spring-releases&lt;/id&gt;
-      &lt;url&gt;https://repo.spring.io/libs-release&lt;/url&gt;
-    &lt;/repository&gt;
-  &lt;/repositories&gt;
-  &lt;pluginRepositories&gt;
-    &lt;pluginRepository&gt;
-      &lt;id&gt;spring-releases&lt;/id&gt;
-      &lt;url&gt;https://repo.spring.io/libs-release&lt;/url&gt;
-    &lt;/pluginRepository&gt;
-  &lt;/pluginRepositories&gt;
+  <repositories>
+    <repository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
+  </pluginRepositories>
 
-  &lt;dependencies&gt;
-    &lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-      &lt;version&gt;5.2.5.RELEASE&lt;/version&gt;
-    &lt;/dependency&gt;
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.2.5.RELEASE</version>
+    </dependency>
 
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
-      &lt;artifactId&gt;camel-core&lt;/artifactId&gt;
-      &lt;version&gt;3.2.0&lt;/version&gt;
-    &lt;/dependency&gt;
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>3.2.0</version>
+    </dependency>
 
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
-      &lt;artifactId&gt;camel-ftp&lt;/artifactId&gt;
-      &lt;version&gt;3.2.0&lt;/version&gt;
-    &lt;/dependency&gt;
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-ftp</artifactId>
+      <version>3.2.0</version>
+    </dependency>
 
-    &lt;!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring --&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
-      &lt;artifactId&gt;camel-spring&lt;/artifactId&gt;
-      &lt;version&gt;3.2.0&lt;/version&gt;
-    &lt;/dependency&gt;
+    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+      <version>3.2.0</version>
+    </dependency>
 
-    &lt;!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple --&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-      &lt;artifactId&gt;slf4j-simple&lt;/artifactId&gt;
-      &lt;version&gt;1.7.30&lt;/version&gt;
-    &lt;/dependency&gt;
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.30</version>
+    </dependency>
 
-  &lt;/dependencies&gt;
+  </dependencies>
 
-  &lt;build&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-        &lt;artifactId&gt;versions-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.7&lt;/version&gt;
-        &lt;configuration&gt;
-          &lt;allowMajorUpdates&gt;false&lt;/allowMajorUpdates&gt;
-          &lt;!-- https://stackoverflow.com/a/22174801/902327 --&gt;
-          &lt;!-- fucking maven shit honestly those java assholes suck so badly --&gt;
-          &lt;rulesUri&gt;file:///${project.basedir}/pom-versions-ruleset.xml&lt;/rulesUri&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-      &lt;plugin&gt;
-        &lt;!-- see here: https://is.gd/HNFI0H --&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.1.12.RELEASE&lt;/version&gt;
-        &lt;executions&gt;
-          &lt;execution&gt;
-            &lt;goals&gt;
-              &lt;goal&gt;repackage&lt;/goal&gt;
-            &lt;/goals&gt;
-          &lt;/execution&gt;
-        &lt;/executions&gt;
-      &lt;/plugin&gt;
-      &lt;plugin&gt;
-        &lt;artifactId&gt;exec-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;1.6.0&lt;/version&gt;
-        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-        &lt;executions&gt;
-          &lt;execution&gt;            &lt;!-- Run our version calculation script --&gt;
-            &lt;id&gt;git-tag&lt;/id&gt;
-            &lt;goals&gt;
-              &lt;goal&gt;exec&lt;/goal&gt;
-            &lt;/goals&gt;
-          &lt;/execution&gt;
-        &lt;/executions&gt;
-        &lt;configuration&gt;
-          &lt;executable&gt;git&lt;/executable&gt;
-          &lt;arguments&gt;
-            &lt;argument&gt;tag&lt;/argument&gt;
-            &lt;argument&gt;${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}${parsedVersion.qualifier?}&lt;/argument&gt;
-          &lt;/arguments&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/build&gt;
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <allowMajorUpdates>false</allowMajorUpdates>
+          <!-- https://stackoverflow.com/a/22174801/902327 -->
+          <!-- fucking maven shit honestly those java assholes suck so badly -->
+          <rulesUri>file:///${project.basedir}/pom-versions-ruleset.xml</rulesUri>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- see here: https://is.gd/HNFI0H -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.1.12.RELEASE</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <groupId>org.codehaus.mojo</groupId>
+        <executions>
+          <execution>            <!-- Run our version calculation script -->
+            <id>git-tag</id>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>git</executable>
+          <arguments>
+            <argument>tag</argument>
+            <argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}${parsedVersion.qualifier?}</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-&lt;/project&gt;
-&lt;!-- I FUCKING HATE MAVEN. --&gt;
+</project>
+<!-- I FUCKING HATE MAVEN. -->
 ```
 
 And this, cause maybe I still don't fully get maven (and with maybe I mean definitely, and yes I know there's an error in the Makefile, I'm gonna fix it - later):
@@ -175,8 +175,8 @@ build:
 
 prepare-test: clean
     mkdir -p tmp/from_here tmp/to_here tmp/and_from_here tmp/to_here_as_well
-    echo deeply &gt; tmp/from_here/i-want-to-be-moved.txt
-    echo deeply &gt; tmp/and_from_here/hashtag-metoo.txt
+    echo deeply > tmp/from_here/i-want-to-be-moved.txt
+    echo deeply > tmp/and_from_here/hashtag-metoo.txt
     cp target/camelocclient-SNAPSHOT.jar tmp/
     cp test-config.xml tmp/
 .PHONY: test
@@ -280,22 +280,22 @@ So this is it. That abomination took me days to build.
 So now I can do "<code class="EnlighterJSRAW" data-enlighter-language="generic">make release</code>", get a .jar file, and place something like this next to it:
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
   DOKUMENTATION:
   https://camel.apache.org/manual/latest/spring.html
---&gt;
+-->
 
-&lt;routes xmlns="http://camel.apache.org/schema/spring"&gt;
-    &lt;route&gt;
-        &lt;from uri="file:from_here"/&gt;
-        &lt;to uri="file:to_here"/&gt;
-    &lt;/route&gt;
-    &lt;route&gt;
-        &lt;from uri="file:and_from_here"/&gt;
-        &lt;to uri="file:to_here_as_well"/&gt;
-    &lt;/route&gt;
-&lt;/routes&gt;
+<routes xmlns="http://camel.apache.org/schema/spring">
+    <route>
+        <from uri="file:from_here"/>
+        <to uri="file:to_here"/>
+    </route>
+    <route>
+        <from uri="file:and_from_here"/>
+        <to uri="file:to_here_as_well"/>
+    </route>
+</routes>
 ```
 
 ... having a freely configurable, all-purpose, no-nonsense Camel engine to my disposal, which I can then deploy to any host of my liking to do things which are useful. In that case - it's supposed to transfer files (the "left" side of the system, a couple of deployments) to S3, and then pull them out (the "right" side of it, one deployment) into a folder on a target machine.

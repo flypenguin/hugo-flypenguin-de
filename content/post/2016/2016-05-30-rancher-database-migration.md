@@ -28,20 +28,20 @@ $ mkdir sockets
 $ docker run -d --name temp-mysql -v $(pwd)/sockets:/var/run/mysqld -v $(pwd):/var/lib/mysql sameersbn/mysql
 
 # dump the database
-$ mysqldump -S ./sockets/mysqld.sock --add-drop-database --add-drop-table --add-drop-trigger --routines --triggers cattle &gt; cattle.sql
+$ mysqldump -S ./sockets/mysqld.sock --add-drop-database --add-drop-table --add-drop-trigger --routines --triggers cattle > cattle.sql
 
 # restore the database in AWS / whatever
-$ mysql -u USERNAME -p -h DB_HOST DB_NAME &lt; cattle.sq
+$ mysql -u USERNAME -p -h DB_HOST DB_NAME < cattle.sq
 ```
 
 (Don't forget to stop the sammersbn container once you're done). I have configured puppet to start rancher. The final configuration in puppet looks like this:
 
 ```
 ::docker::run { 'rancher-master':
-  image   =&gt; 'rancher/server',
-  ports   =&gt; "${rancher_port}:8080",
-  volumes =&gt; [],
-  env     =&gt;  [
+  image   => 'rancher/server',
+  ports   => "${rancher_port}:8080",
+  volumes => [],
+  env     =>  [
     "CATTLE_DB_CATTLE_MYSQL_HOST=${db_host}",
     "CATTLE_DB_CATTLE_MYSQL_NAME=${db_name}",
     "CATTLE_DB_CATTLE_MYSQL_PORT=${db_port}",

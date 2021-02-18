@@ -17,8 +17,8 @@ Erste Lösung:
 
 ```default
 augeas { "${title}" :
-    context =&gt; '/files/etc/hosts',
-    changes =&gt; [
+    context => '/files/etc/hosts',
+    changes => [
         "rm *[canonical = '${host}']",
         "set 02/canonical ${host}",
         "set 02/ipaddr ${ip}",
@@ -30,8 +30,8 @@ Funktioniert nicht. Warum? Trotz Aufruf von "save" am Ende einer jeden Sitzung i
 
 ```default
 augeas { "${title}" :
-    context =&gt; '/files/etc/hosts',
-    changes =&gt; [
+    context => '/files/etc/hosts',
+    changes => [
         "rm *[canonical = '${host}']",
         "set 02/ipaddr ${ip}",
         "set 02/canonical ${host}",

@@ -24,11 +24,11 @@ Und das geht so:
 ```
 <span style="font-family:sans-serif;font-size:small;"># next line broken up for readability
 $devices_tmp    = inline_template( '
-    &lt;%= devs=scope.lookupvar("::blockdevices")
+    <%= devs=scope.lookupvar("::blockdevices")
         .split(",")
         .select{|f| ! f.include? "sda" }
         .select{|f| f.include? "sd" }
-        .collect{|f| "/dev/" + f}.join "," %&gt;' )
+        .collect{|f| "/dev/" + f}.join "," %>' )
 
 # here we split the string back to an array.
 $devices_wanted = split($devices_tmp, ",")

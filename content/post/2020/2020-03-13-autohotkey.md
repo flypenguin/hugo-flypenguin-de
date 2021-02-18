@@ -25,7 +25,7 @@ SetTimer CheckReload, 1000, 0x7FFFFFFF ; ms & priority
 CheckReload() {
     global ScriptStartModTime
     FileGetTime curModTime, %A_ScriptFullPath%
-    If (curModTime &lt;&gt; ScriptStartModTime) {
+    If (curModTime <> ScriptStartModTime) {
         Loop
         {
             reload

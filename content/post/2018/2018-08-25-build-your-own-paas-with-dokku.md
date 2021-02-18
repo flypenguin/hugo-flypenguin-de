@@ -56,7 +56,7 @@ While the droplet is being created, you can also create a project locally to tes
 $ mkdir dokku-test
 $ cd dokku-test
 $ git init
-$ echo "FROM tutum/hello-world" &gt; Dockerfile
+$ echo "FROM tutum/hello-world" > Dockerfile
 $ git add Dockerfile
 $ git commit -m "Initial commit"
 ```
@@ -73,7 +73,7 @@ Then you **SSH into your droplet, and create your dokku project**. (This is some
 ```default
 $ ssh root@DROPLET_IP
 ~# dokku apps:create hello-world
------&gt; Creating hello-world... done
+-----> Creating hello-world... done
 ~# _
 ```
 
@@ -94,8 +94,8 @@ Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 241 bytes | 241.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
------&gt; Cleaning up...
------&gt; Building hello-world from dockerfile...
+-----> Cleaning up...
+-----> Building hello-world from dockerfile...
 remote: build context to Docker daemon  2.048kB
 Step 1/1 : FROM tutum/hello-world
 latest: Pulling from tutum/hello-world
@@ -104,41 +104,41 @@ latest: Pulling from tutum/hello-world
 983d35417974: Pull complete
 Digest: sha256:0d57def8055178aafb4c7669cbc25ec17f0acdab97cc587f30150802da8f8d85
 Status: Downloaded newer image for tutum/hello-world:latest
- ---&gt; 31e17b0746e4
+ ---> 31e17b0746e4
 Successfully built 31e17b0746e4
 Successfully tagged dokku/hello-world:latest
------&gt; Setting config vars
+-----> Setting config vars
        DOKKU_DOCKERFILE_PORTS:  80/tcp
------&gt; Releasing hello-world (dokku/hello-world:latest)...
------&gt; Deploying hello-world (dokku/hello-world:latest)...
------&gt; Attempting to run scripts.dokku.predeploy from app.json (if defined)
------&gt; No Procfile found in app image
------&gt; DOKKU_SCALE file not found in app image. Generating one based on Procfile...
------&gt; New DOKKU_SCALE file generated
-=====&gt; web=1
------&gt; Attempting pre-flight checks
+-----> Releasing hello-world (dokku/hello-world:latest)...
+-----> Deploying hello-world (dokku/hello-world:latest)...
+-----> Attempting to run scripts.dokku.predeploy from app.json (if defined)
+-----> No Procfile found in app image
+-----> DOKKU_SCALE file not found in app image. Generating one based on Procfile...
+-----> New DOKKU_SCALE file generated
+=====> web=1
+-----> Attempting pre-flight checks
        For more efficient zero downtime deployments, create a file CHECKS.
        See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples
        CHECKS file not found in container: Running simple container check...
------&gt; Waiting for 10 seconds ...
------&gt; Default container check successful!
------&gt; Running post-deploy
------&gt; Creating new /home/dokku/hello-world/VHOST...
------&gt; Setting config vars
+-----> Waiting for 10 seconds ...
+-----> Default container check successful!
+-----> Running post-deploy
+-----> Creating new /home/dokku/hello-world/VHOST...
+-----> Setting config vars
        DOKKU_PROXY_PORT_MAP:  http:80:80
------&gt; Configuring hello-world.my-paas.for-myself.com...(using built-in template)
------&gt; Creating http nginx.conf
------&gt; Running nginx-pre-reload
+-----> Configuring hello-world.my-paas.for-myself.com...(using built-in template)
+-----> Creating http nginx.conf
+-----> Running nginx-pre-reload
        Reloading nginx
------&gt; Setting config vars
+-----> Setting config vars
        DOKKU_APP_RESTORE:  1
-=====&gt; Renaming container (14c349cb496d) amazing_snyder to hello-world.web.1
------&gt; Attempting to run scripts.dokku.postdeploy from app.json (if defined)
-=====&gt; Application deployed:
+=====> Renaming container (14c349cb496d) amazing_snyder to hello-world.web.1
+-----> Attempting to run scripts.dokku.postdeploy from app.json (if defined)
+=====> Application deployed:
        http://hello-world.my-paas.for-myself.com
 
 To my-paas.for-myself.com:hello-world
- * [new branch]      master -&gt; master
+ * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'dokku'.
 ```
 

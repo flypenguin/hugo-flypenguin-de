@@ -19,19 +19,19 @@ I have a nextcloud setup like [described here][1] (docker-compose, let's encrypt
 This fixed it:
 
 ```
-&lt;?php
+<?php
 $CONFIG = array (
   # manually added because it's not picked up from
   # the env vars once set ... it seems ...
 
   # the docker IP range
-  'trusted_proxies' =&gt; ["172.16.0.0/12"],
+  'trusted_proxies' => ["172.16.0.0/12"],
 
   # the hostname of the server
-  'overwritehost'   =&gt; "my.super.secret.server",
+  'overwritehost'   => "my.super.secret.server",
 
-  # the ENDUSER-&gt;PROXY protocol, NOT the proxy-&gt; nextcloud protocol!
-  'overwriteprotocol' =&gt; "https",
+  # the ENDUSER->PROXY protocol, NOT the proxy-> nextcloud protocol!
+  'overwriteprotocol' => "https",
 
   #
   # AAAND NOW back to the original config file ...

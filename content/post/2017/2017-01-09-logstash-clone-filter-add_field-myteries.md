@@ -20,7 +20,7 @@ tags:
 # again. THIS DOES NOT WORK.
 filter {
   clone {
-    add_field =&gt; { "token" =&gt; "ABCDEF" }
+    add_field => { "token" => "ABCDEF" }
   }
 }
 output {
@@ -41,8 +41,8 @@ For it to actually clone anything you have to specify the 'clones => ["one", ...
 ```default
 filter {
   clone {
-    clones =&gt; ["logz"]     # NOW it will clone.
-    add_field =&gt; { "token" =&gt; "ABCDEF" }
+    clones => ["logz"]     # NOW it will clone.
+    add_field => { "token" => "ABCDEF" }
   }
 }
 ```

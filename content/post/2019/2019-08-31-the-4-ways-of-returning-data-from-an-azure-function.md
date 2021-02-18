@@ -138,7 +138,7 @@ You thought we were done? Noooooo. For http methods, you can diretly return the 
 // actually NO IDEA if this works sync, async or both
 // my guess is: sync, because "context.done() is implicitly called"
 module.exports = async function(context, req) {
-  rv = { body: "&lt;html/&gt;", status: 201 };
+  rv = { body: "<html/>", status: 201 };
   context.res.send(rv);
 };
 ```

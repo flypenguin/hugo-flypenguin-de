@@ -39,21 +39,21 @@ GELF gives us this information out-of-the-box:
 
 ```default
 {
-       "source_host" =&gt; "10...",
-             "level" =&gt; 6,
-           "created" =&gt; "2017-01-09T13:41:06.039364628Z",
-           "message" =&gt; "This is da log!",
-           "version" =&gt; "1.1",
-           "command" =&gt; "./run.sh",
-              "tags" =&gt; [],
-        "image_name" =&gt; "hub/repo/image",
-        "@timestamp" =&gt; 2017-01-12T11:56:34.395Z,
-    "container_name" =&gt; "ze-container",
-              "host" =&gt; "ip-10-9-8-7",
-          "@version" =&gt; "1",
-               "tag" =&gt; "",
-          "image_id" =&gt; "sha256:...",
-      "container_id" =&gt; "..."
+       "source_host" => "10...",
+             "level" => 6,
+           "created" => "2017-01-09T13:41:06.039364628Z",
+           "message" => "This is da log!",
+           "version" => "1.1",
+           "command" => "./run.sh",
+              "tags" => [],
+        "image_name" => "hub/repo/image",
+        "@timestamp" => 2017-01-12T11:56:34.395Z,
+    "container_name" => "ze-container",
+              "host" => "ip-10-9-8-7",
+          "@version" => "1",
+               "tag" => "",
+          "image_id" => "sha256:...",
+      "container_id" => "..."
 }
 ```
 
@@ -105,9 +105,9 @@ If I naively use the multiline _codec_ like this:
 ```default
 input {
   stdin {
-    codec =&gt; multiline {
-      pattern =&gt; "^\s"
-      what =&gt; "previous"
+    codec => multiline {
+      pattern => "^\s"
+      what => "previous"
     }
   }
 }
@@ -131,27 +131,27 @@ filter {
   # if we have json, let's use it.
   if [message] =~ /^{.*}$/ {
     json {
-      source =&gt; 'message'
-      target =&gt; 'data'
+      source => 'message'
+      target => 'data'
     }
 
     mutate {
-      remove_field =&gt; 'message'
+      remove_field => 'message'
     }
   }
 
   multiline {
-    pattern =&gt; '^\s'
-    what =&gt; 'previous'
-    stream_identity =&gt; "%{container_id}"
+    pattern => '^\s'
+    what => 'previous'
+    stream_identity => "%{container_id}"
   }
 
   # let's clone and add the token field. the ORIGINAL input goes to S3,
   # the CLONED input with the token field goes to logz.io
 
   clone {
-    clones =&gt; [ "one" ]
-    add_field =&gt; { "token" =&gt; "asdf" }
+    clones => [ "one" ]
+    add_field => { "token" => "asdf" }
   }
 
 }

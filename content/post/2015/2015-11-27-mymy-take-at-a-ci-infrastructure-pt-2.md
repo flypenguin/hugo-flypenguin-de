@@ -36,7 +36,7 @@ The prerequisite of this is a build process that does not change, or at least do
 
 ```
 FROM 10.10.10.11:5000/runner/boost:9a443273-2
-MAINTAINER Fly Penguin &lt;fly@flypenguin.de&gt;
+MAINTAINER Fly Penguin <fly@flypenguin.de>
 RUN \
      dnf -y update && dnf -y upgrade \
   && dnf -y install cmake make gcc-c++ boost-test boost-devel \

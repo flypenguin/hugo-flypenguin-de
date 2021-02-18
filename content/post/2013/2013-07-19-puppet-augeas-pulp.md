@@ -17,10 +17,10 @@ Ach Augeas ist schon genial. Wenn nur nicht ... (jaja, immer was zu meckern). An
 Tut es auch: Die IniFile-Lens. Preisfrage: Wie testet man das? Beim Ausprobieren [stieß ich][1] auch auf die Information, dass die IniFile-Lens nicht für direkte Nutzung gedacht ist, sondern nur für die Nutzung in ... abgeleiteten Lenses. Wie z.B. der Puppet-Lens. Die angeblich gut passt. Dann testet man das auf der Konsole folgendermaßen:
 
 ```
-augtool&gt; set /augeas/load/IniFile/lens Puppet.lns
-augtool&gt; set /augeas/load/IniFile/incl /etc/pulp/admin/admin.conf
-augtool&gt; load
-augtool&gt; match /files/etc/pulp/admin/admin.conf/server/host
+augtool> set /augeas/load/IniFile/lens Puppet.lns
+augtool> set /augeas/load/IniFile/incl /etc/pulp/admin/admin.conf
+augtool> load
+augtool> match /files/etc/pulp/admin/admin.conf/server/host
 /files/etc/pulp/admin/admin.conf/server/host = localhost.localdomain
 ```
 
@@ -30,10 +30,10 @@ Ich möchte also den Wert von "host" unter "[server]" ändern, wie man sieht. Di
 
 ```
 augeas { "admin.conf/${key}":
-    incl    =&gt; '/etc/pulp/admin/admin.conf',
-    lens    =&gt; 'Puppet.lns',
-    onlyif  =&gt; "get /files/etc/pulp/admin/admin.conf/server/host != ${hostname}",
-    changes =&gt; [
+    incl    => '/etc/pulp/admin/admin.conf',
+    lens    => 'Puppet.lns',
+    onlyif  => "get /files/etc/pulp/admin/admin.conf/server/host != ${hostname}",
+    changes => [
         "set /files/etc/pulp/admin/admin.conf/server/host ${hostname}",
     ],
 }

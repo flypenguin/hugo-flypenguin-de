@@ -32,20 +32,20 @@ Now this is really not rocket science, but since I might do this more often, I d
 # logstash.conf
 input {
   file {
-    path =&gt; '/stash/logs.log'
+    path => '/stash/logs.log'
   }
 }
 
 filter {
   # whatever config you want to test
   grok {
-    match        =&gt; [ "message", "%{WHATEVER}" ]
-    patterns_dir =&gt; '/stash/patterns'              # optional :)
+    match        => [ "message", "%{WHATEVER}" ]
+    patterns_dir => '/stash/patterns'              # optional :)
   }
 }
 
 output {
-  stdout { codec =&gt; rubydebug }
+  stdout { codec => rubydebug }
 }
 ```
 

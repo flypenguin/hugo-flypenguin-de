@@ -20,8 +20,8 @@ The code is:
 class my::own::docker {
     include ::docker
     file { '/var/lib/docker':
-        ensure =&gt; directory,
-        before =&gt; Class['docker'],
+        ensure => directory,
+        before => Class['docker'],
     }
 }
 ```
